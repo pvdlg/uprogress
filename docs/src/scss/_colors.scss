@@ -1,0 +1,54 @@
+// --------------------------------------------------------
+// Base colors
+// --------------------------------------------------------
+
+// Base
+$white: #fff;
+$black: #000;
+$base-colors:
+  (
+    'blue': #006be5, 'red': #e22616, 'green': #38ad5d, 'orange': #fc8d03, 'purple': #713ed0, 'teal': #17a0d3);
+$base-gray: ('gray': #363636);
+
+// Shades
+$gray-shades: ('x-dark': 78%, 'dark': 22%, 'medium': -27.5%, 'light': -95%, 'x-light': -98.5%);
+
+$shades: ('x-dark': 45%, 'dark': 15%, 'medium': -45%, 'light': -80%, 'x-light': -95%);
+
+// Palettes
+@function create-palettes($base-colors, $shades) {
+  $palettes: ();
+
+  @each $name, $hex in $base-colors {
+    // Set base shade
+    $palette: (base: $hex);
+
+    @each $shade, $percent in $shades {
+      $mixed: null;
+
+      @if $percent > 0 {
+        $mixed: mix($black, $hex, $percent);
+      } @else {
+        $mixed: mix($white, $hex, abs($percent));
+      }
+      // stylelint-disable-next-line order/order
+      $palette: map-merge($palette, ($shade: $mixed));
+    }
+    // stylelint-disable-next-line order/order
+    $palettes: map-merge($palettes, ($name: $palette));
+  }
+
+  @return $palettes;
+}
+
+$colors: create-palettes($base-colors, $shades);
+$grayscale: create-palettes($base-gray, $gray-shades);
+
+// Accessor
+@function color($color, $shade: base) {
+  @return map-get(map-get($colors, $color), $shade);
+}
+
+@function gray($shade: base) {
+  @return map-get(map-get($grayscale, 'gray'), $shade);
+}

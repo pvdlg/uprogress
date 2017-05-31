@@ -1,0 +1,12 @@
+/// Default µProgress color.
+/// @type Color
+$uprogress-colors: #006be5 !default;
+/// Default µProgress height.
+/// @type String
+$uprogress-height: 2px !default;
+/// Z-index value of the µProgress.
+/// @type Number
+$uprogress-zindex: 1000 !default;
+/// Default µProgress posistion (`top` or `bottom`).
+/// @type String
+$uprogress-position: 'top' !default;

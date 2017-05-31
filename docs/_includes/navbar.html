@@ -1,0 +1,37 @@
+<header class="header">
+  <nav class="navbar container">
+    {% if jekyll.environment == "development" %}
+    <a class="navbar-brand" href="/">
+      <span class="logo"></span>
+      <span class="logo-text">{{site.title}}</span>
+    </a>
+    {% else %}
+    <a class="navbar-brand" href="{{ site.baseurl }}/">
+      <span class="logo"></span>
+      <span class="logo-text">{{site.title}}</span>
+    </a>
+    {% endif %}
+    <div class="navbar-nav">
+      <a class="nav-icon" href="{{site.github.repository_url}}" target="_blank">
+        {% octicon mark-github height:18 %}
+      </a>
+    </div>
+    <div class="navbar-nav-lg">
+      <div class="nav-item {% if page.layout == 'doc' %}active{% endif %}">
+        {% if jekyll.environment == "development" %}
+          <a class="nav-link" href="/getting-started">Documentation</a>
+        {% else %}
+          <a class="nav-link" href="{{ site.baseurl }}/getting-started">Documentation</a>
+        {% endif %}
+      </div>
+      <a class="btn btn-outline-primary" href="{{site.github.repository_url}}" target="_blank">
+        {% octicon mark-github height:18 %}
+        <span>Github</span>
+      </a>
+      <a class="btn btn-primary" href="{{site.github.repository_url}}/archive/{{site.version}}.zip" target="_blank">
+        {% octicon desktop-download height:18 %}
+        <span>Download</span>
+      </a>
+    </div>
+  </nav>
+</header>

@@ -1,0 +1,56 @@
+<aside id="sidebar" class="sidebar">
+  {% assign pages = site.pages | sort:"position"  %}
+  {% for doc in pages %}
+    {% if doc.title != null or doc.sidebar_title %}
+      <ul class="menu">
+      {% if doc.url == page.url %}
+        {% assign active = ' active' %}
+      {% else %}
+        {% assign active = '' %}
+      {% endif %}
+      {% assign menu-label-class = 'menu-label ' | append: doc.sidebar_class | strip | append: active | strip %}
+      {% if jekyll.environment == "development" %}
+        <li><a href="{{ doc.url }}" class="{{ menu-label-class }}">{{ doc.title }}</a></li>
+      {% else %}
+        <li><a href="{{ site.baseurl }}{{ doc.url }}" class="{{ menu-label-class }}">{{ doc.title }}</a></li>
+      {% endif %}
+      {% assign last_depth = 0 %}
+      {% for item in doc.subnav %}
+        {% if item.depth == 1 and last_depth == 2 %}
+          </ul></li></ul>
+        {% endif %}
+        {% if item.depth == 1 and last_depth == 1 %}
+          </ul>
+        {% endif %}
+        {% if item.depth == 1 %}
+          <ul class="menu-list">
+          {% assign menu-list-label-class = 'menu-list-label ' | append: item.class | strip %}
+          {% if jekyll.environment == "development" %}
+            <li><a href="{{ doc.url }}#{{ item.id }}" class="{{ menu-list-label-class }}">{{ item.title }}</a></li>
+          {% else %}
+            <li><a href="{{ site.baseurl }}{{ doc.url }}#{{ item.id }}" class="{{ menu-list-label-class }}">{{ item.title }}</a></li>
+          {% endif %}
+        {% endif %}
+        {% if item.depth == 2 and last_depth != 2 %}
+          <li><ul class="submenu-list">
+        {% endif %}
+        {% if item.depth == 2 %}
+          {% assign submenu-list-label-class = 'submenu-list-label ' | append: item.class | strip %}
+          {% if jekyll.environment == "development" %}
+            <li><a href="{{ doc.url }}#{{ item.id }}" class="{{ submenu-list-label-class }}">{{ item.title }}</a></li>
+          {% else %}
+            <li><a href="{{ site.baseurl }}{{ doc.url }}#{{ item.id }}" class="{{ submenu-list-label-class }}">{{ item.title }}</a></li>
+          {% endif %}
+        {% endif %}
+        {% assign last_depth = item.depth %}
+      {% endfor %}
+      {% if last_depth == 2 %}
+        </ul></li></ul>
+      {% endif %}
+      {% if last_depth == 1 %}
+        </ul>
+      {% endif %}
+      </ul></ul>
+    {% endif %}
+  {% endfor %}
+</aside>

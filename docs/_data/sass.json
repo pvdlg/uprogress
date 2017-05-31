@@ -1,0 +1,383 @@
+[
+  {
+    "description": "Valid values for the $position parameter.\n",
+    "commentRange": {
+      "start": 3,
+      "end": 5
+    },
+    "context": {
+      "type": "variable",
+      "name": "valid-position",
+      "value": "'top', 'bottom'",
+      "scope": "private",
+      "line": {
+        "start": 6,
+        "end": 6
+      }
+    },
+    "type": "List<String>",
+    "access": "private",
+    "group": [
+      "undefined"
+    ],
+    "file": {
+      "path": "_mixin.scss",
+      "name": "_mixin.scss"
+    },
+    "usedBy": [
+      {
+        "description": "Mixin to generate a custom μProgress style. Allow to customize, class name, height and colors.\nGenerate a monochrome progres bar if one colors is passed or a multi-color animated one if multiple colors are passed.\n\n",
+        "context": {
+          "type": "mixin",
+          "name": "uprogress",
+          "code": "\n  @if $colors == null or length($colors) == 0 {\n    $colors: $uprogress-colors;\n\n    @warn '$colors is null or empty, using default $uprogress-colors (#{$uprogress-colors}) .';\n  }\n  @if $height == null {\n    $height: $uprogress-height;\n\n    @warn '$height is null, using default $uprogress-height (#{$uprogress-height}) .';\n  }\n  @if index($valid-position, $position) == null {\n    $position: $uprogress-position;\n\n    @warn '$position is not valid, using default $uprogress-position (#{$uprogress-position}) .';\n  }\n  @if length($colors) > 1 {\n    @keyframes #{$name} {\n      0% {\n        background-position: 0 0;\n      }\n\n      100% {\n        background-position: (100% + 100% / length($colors)) 0;\n      }\n    }\n    @keyframes fadein {\n      0% {\n        opacity: 0;\n      }\n\n      100% {\n        opacity: 1;\n      }\n    }\n  }\n\n  .#{$name} {\n    #{$position}: 0;\n    right: 0;\n    left: 0;\n    z-index: $uprogress-zindex;\n    height: $height * 4;\n    overflow: hidden;\n\n    @if length($colors) == 1 {\n      .blur {\n        position: absolute;\n        right: 1px;\n        width: $height * 50;\n        height: 100%;\n        box-shadow: 0 0 $height * 4 nth($colors, 1), 0 0 $height * 2 nth($colors, 1);\n\n        @if $position == 'top' {\n          transform: rotate(3deg) translateY(-$height * 1.5);\n        } @else {\n          transform: rotate(-3deg) translateY($height * 1.5);\n        }\n      }\n\n      &.rtl .blur {\n        left: 1px;\n\n        @if $position == 'top' {\n          transform: rotate(-3deg) translateY(-$height * 1.5);\n        } @else {\n          transform: rotate(3deg) translateY($height * 1.5);\n        }\n      }\n    }\n\n    .bar {\n      position: absolute;\n      #{$position}: 0;\n      height: $height;\n      pointer-events: none;\n      background-color: nth($colors, 1);\n      will-change: transform;\n\n      @if length($colors) > 1 {\n        $gradient-colors: append($colors, nth($colors, 1));\n        background-image: linear-gradient(to right, $gradient-colors);\n        background-size: length($gradient-colors) * 100%;\n        animation-name: #{$name}, fadein;\n        animation-duration: 2s, .3s;\n        animation-timing-function: linear, ease;\n        animation-iteration-count: infinite, 1;\n      }\n    }\n  }\n",
+          "line": {
+            "start": 50,
+            "end": 141
+          }
+        }
+      }
+    ]
+  },
+  {
+    "description": "Mixin to generate a custom μProgress style. Allow to customize, class name, height and colors.\nGenerate a monochrome progres bar if one colors is passed or a multi-color animated one if multiple colors are passed.\n\n",
+    "commentRange": {
+      "start": 8,
+      "end": 49
+    },
+    "context": {
+      "type": "mixin",
+      "name": "uprogress",
+      "code": "\n  @if $colors == null or length($colors) == 0 {\n    $colors: $uprogress-colors;\n\n    @warn '$colors is null or empty, using default $uprogress-colors (#{$uprogress-colors}) .';\n  }\n  @if $height == null {\n    $height: $uprogress-height;\n\n    @warn '$height is null, using default $uprogress-height (#{$uprogress-height}) .';\n  }\n  @if index($valid-position, $position) == null {\n    $position: $uprogress-position;\n\n    @warn '$position is not valid, using default $uprogress-position (#{$uprogress-position}) .';\n  }\n  @if length($colors) > 1 {\n    @keyframes #{$name} {\n      0% {\n        background-position: 0 0;\n      }\n\n      100% {\n        background-position: (100% + 100% / length($colors)) 0;\n      }\n    }\n    @keyframes fadein {\n      0% {\n        opacity: 0;\n      }\n\n      100% {\n        opacity: 1;\n      }\n    }\n  }\n\n  .#{$name} {\n    #{$position}: 0;\n    right: 0;\n    left: 0;\n    z-index: $uprogress-zindex;\n    height: $height * 4;\n    overflow: hidden;\n\n    @if length($colors) == 1 {\n      .blur {\n        position: absolute;\n        right: 1px;\n        width: $height * 50;\n        height: 100%;\n        box-shadow: 0 0 $height * 4 nth($colors, 1), 0 0 $height * 2 nth($colors, 1);\n\n        @if $position == 'top' {\n          transform: rotate(3deg) translateY(-$height * 1.5);\n        } @else {\n          transform: rotate(-3deg) translateY($height * 1.5);\n        }\n      }\n\n      &.rtl .blur {\n        left: 1px;\n\n        @if $position == 'top' {\n          transform: rotate(-3deg) translateY(-$height * 1.5);\n        } @else {\n          transform: rotate(3deg) translateY($height * 1.5);\n        }\n      }\n    }\n\n    .bar {\n      position: absolute;\n      #{$position}: 0;\n      height: $height;\n      pointer-events: none;\n      background-color: nth($colors, 1);\n      will-change: transform;\n\n      @if length($colors) > 1 {\n        $gradient-colors: append($colors, nth($colors, 1));\n        background-image: linear-gradient(to right, $gradient-colors);\n        background-size: length($gradient-colors) * 100%;\n        animation-name: #{$name}, fadein;\n        animation-duration: 2s, .3s;\n        animation-timing-function: linear, ease;\n        animation-iteration-count: infinite, 1;\n      }\n    }\n  }\n",
+      "line": {
+        "start": 50,
+        "end": 141
+      }
+    },
+    "parameter": [
+      {
+        "type": "String",
+        "name": "name",
+        "default": "uprogress",
+        "description": "class to apply to the μProgress."
+      },
+      {
+        "type": "Length",
+        "name": "height",
+        "default": "`$uprogress-height`",
+        "description": "progressbar height."
+      },
+      {
+        "type": "List<Color>",
+        "name": "colors",
+        "default": "`$uprogress-colors`",
+        "description": "List of Colors."
+      },
+      {
+        "type": "String",
+        "name": "position",
+        "default": "`$uprogress-position`",
+        "description": "Position the µProgress on top or on bottom of its parent."
+      }
+    ],
+    "output": "A CSS class to pass in the `class` option of the `UProgress` Javascript module.",
+    "example": [
+      {
+        "type": "scss",
+        "code": "@include uprogress(purple-progress, .25rem, rgb(113, 62, 208));\n\n// CSS Output\n.purple-progress {\n  ...\n  top: 0;\n  height: .25rem;\n  ...\n  background-color: rgb(113, 62, 208);\n}\n.purple-progress.blur {\n  ...\n  color: rgb(113, 62, 208);\n  ...\n}",
+        "description": "A purple progress bar with a height of .25rem"
+      },
+      {
+        "type": "scss",
+        "code": "@include uprogress($name: rainbow-progress, $colors: (#17a0d3, #713ed0, #fc8d03, #38ad5d), $position: 'bottom');\n\n// CSS Output\n.purple-progress {\n  ...\n  bottom: 0;\n  height: 2px;\n  ...\n  background-color: #17a0d3;\n  background-image: linear-gradient(to right, #17a0d3, #713ed0, #fc8d03, #38ad5d, #17a0d3);\n  background-size: 500%;\n  animation: 2s linear infinite rainbow-progress, 0.3s fadein;\n}\n@keyframes fadein { ... }\n@keyframes rainbow-progress { ... }",
+        "description": "A multi-color progress bar with default height (2px)"
+      }
+    ],
+    "access": "public",
+    "group": [
+      "undefined"
+    ],
+    "require": [
+      {
+        "type": "variable",
+        "name": "uprogress-colors"
+      },
+      {
+        "type": "variable",
+        "name": "uprogress-colors"
+      },
+      {
+        "type": "variable",
+        "name": "uprogress-colors"
+      },
+      {
+        "type": "variable",
+        "name": "uprogress-height"
+      },
+      {
+        "type": "variable",
+        "name": "uprogress-height"
+      },
+      {
+        "type": "variable",
+        "name": "uprogress-height"
+      },
+      {
+        "type": "variable",
+        "name": "valid-position"
+      },
+      {
+        "type": "variable",
+        "name": "uprogress-position"
+      },
+      {
+        "type": "variable",
+        "name": "uprogress-position"
+      },
+      {
+        "type": "variable",
+        "name": "uprogress-position"
+      },
+      {
+        "type": "variable",
+        "name": "uprogress-zindex"
+      }
+    ],
+    "file": {
+      "path": "_mixin.scss",
+      "name": "_mixin.scss"
+    }
+  },
+  {
+    "description": "Default µProgress color.\n",
+    "commentRange": {
+      "start": 1,
+      "end": 2
+    },
+    "context": {
+      "type": "variable",
+      "name": "uprogress-colors",
+      "value": "#006be5",
+      "scope": "default",
+      "line": {
+        "start": 3,
+        "end": 3
+      }
+    },
+    "type": "Color",
+    "access": "public",
+    "group": [
+      "undefined"
+    ],
+    "file": {
+      "path": "_variables.scss",
+      "name": "_variables.scss"
+    },
+    "usedBy": [
+      {
+        "description": "Mixin to generate a custom μProgress style. Allow to customize, class name, height and colors.\nGenerate a monochrome progres bar if one colors is passed or a multi-color animated one if multiple colors are passed.\n\n",
+        "context": {
+          "type": "mixin",
+          "name": "uprogress",
+          "code": "\n  @if $colors == null or length($colors) == 0 {\n    $colors: $uprogress-colors;\n\n    @warn '$colors is null or empty, using default $uprogress-colors (#{$uprogress-colors}) .';\n  }\n  @if $height == null {\n    $height: $uprogress-height;\n\n    @warn '$height is null, using default $uprogress-height (#{$uprogress-height}) .';\n  }\n  @if index($valid-position, $position) == null {\n    $position: $uprogress-position;\n\n    @warn '$position is not valid, using default $uprogress-position (#{$uprogress-position}) .';\n  }\n  @if length($colors) > 1 {\n    @keyframes #{$name} {\n      0% {\n        background-position: 0 0;\n      }\n\n      100% {\n        background-position: (100% + 100% / length($colors)) 0;\n      }\n    }\n    @keyframes fadein {\n      0% {\n        opacity: 0;\n      }\n\n      100% {\n        opacity: 1;\n      }\n    }\n  }\n\n  .#{$name} {\n    #{$position}: 0;\n    right: 0;\n    left: 0;\n    z-index: $uprogress-zindex;\n    height: $height * 4;\n    overflow: hidden;\n\n    @if length($colors) == 1 {\n      .blur {\n        position: absolute;\n        right: 1px;\n        width: $height * 50;\n        height: 100%;\n        box-shadow: 0 0 $height * 4 nth($colors, 1), 0 0 $height * 2 nth($colors, 1);\n\n        @if $position == 'top' {\n          transform: rotate(3deg) translateY(-$height * 1.5);\n        } @else {\n          transform: rotate(-3deg) translateY($height * 1.5);\n        }\n      }\n\n      &.rtl .blur {\n        left: 1px;\n\n        @if $position == 'top' {\n          transform: rotate(-3deg) translateY(-$height * 1.5);\n        } @else {\n          transform: rotate(3deg) translateY($height * 1.5);\n        }\n      }\n    }\n\n    .bar {\n      position: absolute;\n      #{$position}: 0;\n      height: $height;\n      pointer-events: none;\n      background-color: nth($colors, 1);\n      will-change: transform;\n\n      @if length($colors) > 1 {\n        $gradient-colors: append($colors, nth($colors, 1));\n        background-image: linear-gradient(to right, $gradient-colors);\n        background-size: length($gradient-colors) * 100%;\n        animation-name: #{$name}, fadein;\n        animation-duration: 2s, .3s;\n        animation-timing-function: linear, ease;\n        animation-iteration-count: infinite, 1;\n      }\n    }\n  }\n",
+          "line": {
+            "start": 50,
+            "end": 141
+          }
+        }
+      },
+      {
+        "description": "Mixin to generate a custom μProgress style. Allow to customize, class name, height and colors.\nGenerate a monochrome progres bar if one colors is passed or a multi-color animated one if multiple colors are passed.\n\n",
+        "context": {
+          "type": "mixin",
+          "name": "uprogress",
+          "code": "\n  @if $colors == null or length($colors) == 0 {\n    $colors: $uprogress-colors;\n\n    @warn '$colors is null or empty, using default $uprogress-colors (#{$uprogress-colors}) .';\n  }\n  @if $height == null {\n    $height: $uprogress-height;\n\n    @warn '$height is null, using default $uprogress-height (#{$uprogress-height}) .';\n  }\n  @if index($valid-position, $position) == null {\n    $position: $uprogress-position;\n\n    @warn '$position is not valid, using default $uprogress-position (#{$uprogress-position}) .';\n  }\n  @if length($colors) > 1 {\n    @keyframes #{$name} {\n      0% {\n        background-position: 0 0;\n      }\n\n      100% {\n        background-position: (100% + 100% / length($colors)) 0;\n      }\n    }\n    @keyframes fadein {\n      0% {\n        opacity: 0;\n      }\n\n      100% {\n        opacity: 1;\n      }\n    }\n  }\n\n  .#{$name} {\n    #{$position}: 0;\n    right: 0;\n    left: 0;\n    z-index: $uprogress-zindex;\n    height: $height * 4;\n    overflow: hidden;\n\n    @if length($colors) == 1 {\n      .blur {\n        position: absolute;\n        right: 1px;\n        width: $height * 50;\n        height: 100%;\n        box-shadow: 0 0 $height * 4 nth($colors, 1), 0 0 $height * 2 nth($colors, 1);\n\n        @if $position == 'top' {\n          transform: rotate(3deg) translateY(-$height * 1.5);\n        } @else {\n          transform: rotate(-3deg) translateY($height * 1.5);\n        }\n      }\n\n      &.rtl .blur {\n        left: 1px;\n\n        @if $position == 'top' {\n          transform: rotate(-3deg) translateY(-$height * 1.5);\n        } @else {\n          transform: rotate(3deg) translateY($height * 1.5);\n        }\n      }\n    }\n\n    .bar {\n      position: absolute;\n      #{$position}: 0;\n      height: $height;\n      pointer-events: none;\n      background-color: nth($colors, 1);\n      will-change: transform;\n\n      @if length($colors) > 1 {\n        $gradient-colors: append($colors, nth($colors, 1));\n        background-image: linear-gradient(to right, $gradient-colors);\n        background-size: length($gradient-colors) * 100%;\n        animation-name: #{$name}, fadein;\n        animation-duration: 2s, .3s;\n        animation-timing-function: linear, ease;\n        animation-iteration-count: infinite, 1;\n      }\n    }\n  }\n",
+          "line": {
+            "start": 50,
+            "end": 141
+          }
+        }
+      },
+      {
+        "description": "Mixin to generate a custom μProgress style. Allow to customize, class name, height and colors.\nGenerate a monochrome progres bar if one colors is passed or a multi-color animated one if multiple colors are passed.\n\n",
+        "context": {
+          "type": "mixin",
+          "name": "uprogress",
+          "code": "\n  @if $colors == null or length($colors) == 0 {\n    $colors: $uprogress-colors;\n\n    @warn '$colors is null or empty, using default $uprogress-colors (#{$uprogress-colors}) .';\n  }\n  @if $height == null {\n    $height: $uprogress-height;\n\n    @warn '$height is null, using default $uprogress-height (#{$uprogress-height}) .';\n  }\n  @if index($valid-position, $position) == null {\n    $position: $uprogress-position;\n\n    @warn '$position is not valid, using default $uprogress-position (#{$uprogress-position}) .';\n  }\n  @if length($colors) > 1 {\n    @keyframes #{$name} {\n      0% {\n        background-position: 0 0;\n      }\n\n      100% {\n        background-position: (100% + 100% / length($colors)) 0;\n      }\n    }\n    @keyframes fadein {\n      0% {\n        opacity: 0;\n      }\n\n      100% {\n        opacity: 1;\n      }\n    }\n  }\n\n  .#{$name} {\n    #{$position}: 0;\n    right: 0;\n    left: 0;\n    z-index: $uprogress-zindex;\n    height: $height * 4;\n    overflow: hidden;\n\n    @if length($colors) == 1 {\n      .blur {\n        position: absolute;\n        right: 1px;\n        width: $height * 50;\n        height: 100%;\n        box-shadow: 0 0 $height * 4 nth($colors, 1), 0 0 $height * 2 nth($colors, 1);\n\n        @if $position == 'top' {\n          transform: rotate(3deg) translateY(-$height * 1.5);\n        } @else {\n          transform: rotate(-3deg) translateY($height * 1.5);\n        }\n      }\n\n      &.rtl .blur {\n        left: 1px;\n\n        @if $position == 'top' {\n          transform: rotate(-3deg) translateY(-$height * 1.5);\n        } @else {\n          transform: rotate(3deg) translateY($height * 1.5);\n        }\n      }\n    }\n\n    .bar {\n      position: absolute;\n      #{$position}: 0;\n      height: $height;\n      pointer-events: none;\n      background-color: nth($colors, 1);\n      will-change: transform;\n\n      @if length($colors) > 1 {\n        $gradient-colors: append($colors, nth($colors, 1));\n        background-image: linear-gradient(to right, $gradient-colors);\n        background-size: length($gradient-colors) * 100%;\n        animation-name: #{$name}, fadein;\n        animation-duration: 2s, .3s;\n        animation-timing-function: linear, ease;\n        animation-iteration-count: infinite, 1;\n      }\n    }\n  }\n",
+          "line": {
+            "start": 50,
+            "end": 141
+          }
+        }
+      }
+    ]
+  },
+  {
+    "description": "Default µProgress height.\n",
+    "commentRange": {
+      "start": 4,
+      "end": 5
+    },
+    "context": {
+      "type": "variable",
+      "name": "uprogress-height",
+      "value": "2px",
+      "scope": "default",
+      "line": {
+        "start": 6,
+        "end": 6
+      }
+    },
+    "type": "String",
+    "access": "public",
+    "group": [
+      "undefined"
+    ],
+    "file": {
+      "path": "_variables.scss",
+      "name": "_variables.scss"
+    },
+    "usedBy": [
+      {
+        "description": "Mixin to generate a custom μProgress style. Allow to customize, class name, height and colors.\nGenerate a monochrome progres bar if one colors is passed or a multi-color animated one if multiple colors are passed.\n\n",
+        "context": {
+          "type": "mixin",
+          "name": "uprogress",
+          "code": "\n  @if $colors == null or length($colors) == 0 {\n    $colors: $uprogress-colors;\n\n    @warn '$colors is null or empty, using default $uprogress-colors (#{$uprogress-colors}) .';\n  }\n  @if $height == null {\n    $height: $uprogress-height;\n\n    @warn '$height is null, using default $uprogress-height (#{$uprogress-height}) .';\n  }\n  @if index($valid-position, $position) == null {\n    $position: $uprogress-position;\n\n    @warn '$position is not valid, using default $uprogress-position (#{$uprogress-position}) .';\n  }\n  @if length($colors) > 1 {\n    @keyframes #{$name} {\n      0% {\n        background-position: 0 0;\n      }\n\n      100% {\n        background-position: (100% + 100% / length($colors)) 0;\n      }\n    }\n    @keyframes fadein {\n      0% {\n        opacity: 0;\n      }\n\n      100% {\n        opacity: 1;\n      }\n    }\n  }\n\n  .#{$name} {\n    #{$position}: 0;\n    right: 0;\n    left: 0;\n    z-index: $uprogress-zindex;\n    height: $height * 4;\n    overflow: hidden;\n\n    @if length($colors) == 1 {\n      .blur {\n        position: absolute;\n        right: 1px;\n        width: $height * 50;\n        height: 100%;\n        box-shadow: 0 0 $height * 4 nth($colors, 1), 0 0 $height * 2 nth($colors, 1);\n\n        @if $position == 'top' {\n          transform: rotate(3deg) translateY(-$height * 1.5);\n        } @else {\n          transform: rotate(-3deg) translateY($height * 1.5);\n        }\n      }\n\n      &.rtl .blur {\n        left: 1px;\n\n        @if $position == 'top' {\n          transform: rotate(-3deg) translateY(-$height * 1.5);\n        } @else {\n          transform: rotate(3deg) translateY($height * 1.5);\n        }\n      }\n    }\n\n    .bar {\n      position: absolute;\n      #{$position}: 0;\n      height: $height;\n      pointer-events: none;\n      background-color: nth($colors, 1);\n      will-change: transform;\n\n      @if length($colors) > 1 {\n        $gradient-colors: append($colors, nth($colors, 1));\n        background-image: linear-gradient(to right, $gradient-colors);\n        background-size: length($gradient-colors) * 100%;\n        animation-name: #{$name}, fadein;\n        animation-duration: 2s, .3s;\n        animation-timing-function: linear, ease;\n        animation-iteration-count: infinite, 1;\n      }\n    }\n  }\n",
+          "line": {
+            "start": 50,
+            "end": 141
+          }
+        }
+      },
+      {
+        "description": "Mixin to generate a custom μProgress style. Allow to customize, class name, height and colors.\nGenerate a monochrome progres bar if one colors is passed or a multi-color animated one if multiple colors are passed.\n\n",
+        "context": {
+          "type": "mixin",
+          "name": "uprogress",
+          "code": "\n  @if $colors == null or length($colors) == 0 {\n    $colors: $uprogress-colors;\n\n    @warn '$colors is null or empty, using default $uprogress-colors (#{$uprogress-colors}) .';\n  }\n  @if $height == null {\n    $height: $uprogress-height;\n\n    @warn '$height is null, using default $uprogress-height (#{$uprogress-height}) .';\n  }\n  @if index($valid-position, $position) == null {\n    $position: $uprogress-position;\n\n    @warn '$position is not valid, using default $uprogress-position (#{$uprogress-position}) .';\n  }\n  @if length($colors) > 1 {\n    @keyframes #{$name} {\n      0% {\n        background-position: 0 0;\n      }\n\n      100% {\n        background-position: (100% + 100% / length($colors)) 0;\n      }\n    }\n    @keyframes fadein {\n      0% {\n        opacity: 0;\n      }\n\n      100% {\n        opacity: 1;\n      }\n    }\n  }\n\n  .#{$name} {\n    #{$position}: 0;\n    right: 0;\n    left: 0;\n    z-index: $uprogress-zindex;\n    height: $height * 4;\n    overflow: hidden;\n\n    @if length($colors) == 1 {\n      .blur {\n        position: absolute;\n        right: 1px;\n        width: $height * 50;\n        height: 100%;\n        box-shadow: 0 0 $height * 4 nth($colors, 1), 0 0 $height * 2 nth($colors, 1);\n\n        @if $position == 'top' {\n          transform: rotate(3deg) translateY(-$height * 1.5);\n        } @else {\n          transform: rotate(-3deg) translateY($height * 1.5);\n        }\n      }\n\n      &.rtl .blur {\n        left: 1px;\n\n        @if $position == 'top' {\n          transform: rotate(-3deg) translateY(-$height * 1.5);\n        } @else {\n          transform: rotate(3deg) translateY($height * 1.5);\n        }\n      }\n    }\n\n    .bar {\n      position: absolute;\n      #{$position}: 0;\n      height: $height;\n      pointer-events: none;\n      background-color: nth($colors, 1);\n      will-change: transform;\n\n      @if length($colors) > 1 {\n        $gradient-colors: append($colors, nth($colors, 1));\n        background-image: linear-gradient(to right, $gradient-colors);\n        background-size: length($gradient-colors) * 100%;\n        animation-name: #{$name}, fadein;\n        animation-duration: 2s, .3s;\n        animation-timing-function: linear, ease;\n        animation-iteration-count: infinite, 1;\n      }\n    }\n  }\n",
+          "line": {
+            "start": 50,
+            "end": 141
+          }
+        }
+      },
+      {
+        "description": "Mixin to generate a custom μProgress style. Allow to customize, class name, height and colors.\nGenerate a monochrome progres bar if one colors is passed or a multi-color animated one if multiple colors are passed.\n\n",
+        "context": {
+          "type": "mixin",
+          "name": "uprogress",
+          "code": "\n  @if $colors == null or length($colors) == 0 {\n    $colors: $uprogress-colors;\n\n    @warn '$colors is null or empty, using default $uprogress-colors (#{$uprogress-colors}) .';\n  }\n  @if $height == null {\n    $height: $uprogress-height;\n\n    @warn '$height is null, using default $uprogress-height (#{$uprogress-height}) .';\n  }\n  @if index($valid-position, $position) == null {\n    $position: $uprogress-position;\n\n    @warn '$position is not valid, using default $uprogress-position (#{$uprogress-position}) .';\n  }\n  @if length($colors) > 1 {\n    @keyframes #{$name} {\n      0% {\n        background-position: 0 0;\n      }\n\n      100% {\n        background-position: (100% + 100% / length($colors)) 0;\n      }\n    }\n    @keyframes fadein {\n      0% {\n        opacity: 0;\n      }\n\n      100% {\n        opacity: 1;\n      }\n    }\n  }\n\n  .#{$name} {\n    #{$position}: 0;\n    right: 0;\n    left: 0;\n    z-index: $uprogress-zindex;\n    height: $height * 4;\n    overflow: hidden;\n\n    @if length($colors) == 1 {\n      .blur {\n        position: absolute;\n        right: 1px;\n        width: $height * 50;\n        height: 100%;\n        box-shadow: 0 0 $height * 4 nth($colors, 1), 0 0 $height * 2 nth($colors, 1);\n\n        @if $position == 'top' {\n          transform: rotate(3deg) translateY(-$height * 1.5);\n        } @else {\n          transform: rotate(-3deg) translateY($height * 1.5);\n        }\n      }\n\n      &.rtl .blur {\n        left: 1px;\n\n        @if $position == 'top' {\n          transform: rotate(-3deg) translateY(-$height * 1.5);\n        } @else {\n          transform: rotate(3deg) translateY($height * 1.5);\n        }\n      }\n    }\n\n    .bar {\n      position: absolute;\n      #{$position}: 0;\n      height: $height;\n      pointer-events: none;\n      background-color: nth($colors, 1);\n      will-change: transform;\n\n      @if length($colors) > 1 {\n        $gradient-colors: append($colors, nth($colors, 1));\n        background-image: linear-gradient(to right, $gradient-colors);\n        background-size: length($gradient-colors) * 100%;\n        animation-name: #{$name}, fadein;\n        animation-duration: 2s, .3s;\n        animation-timing-function: linear, ease;\n        animation-iteration-count: infinite, 1;\n      }\n    }\n  }\n",
+          "line": {
+            "start": 50,
+            "end": 141
+          }
+        }
+      }
+    ]
+  },
+  {
+    "description": "Z-index value of the µProgress.\n",
+    "commentRange": {
+      "start": 7,
+      "end": 8
+    },
+    "context": {
+      "type": "variable",
+      "name": "uprogress-zindex",
+      "value": "1000",
+      "scope": "default",
+      "line": {
+        "start": 9,
+        "end": 9
+      }
+    },
+    "type": "Number",
+    "access": "public",
+    "group": [
+      "undefined"
+    ],
+    "file": {
+      "path": "_variables.scss",
+      "name": "_variables.scss"
+    },
+    "usedBy": [
+      {
+        "description": "Mixin to generate a custom μProgress style. Allow to customize, class name, height and colors.\nGenerate a monochrome progres bar if one colors is passed or a multi-color animated one if multiple colors are passed.\n\n",
+        "context": {
+          "type": "mixin",
+          "name": "uprogress",
+          "code": "\n  @if $colors == null or length($colors) == 0 {\n    $colors: $uprogress-colors;\n\n    @warn '$colors is null or empty, using default $uprogress-colors (#{$uprogress-colors}) .';\n  }\n  @if $height == null {\n    $height: $uprogress-height;\n\n    @warn '$height is null, using default $uprogress-height (#{$uprogress-height}) .';\n  }\n  @if index($valid-position, $position) == null {\n    $position: $uprogress-position;\n\n    @warn '$position is not valid, using default $uprogress-position (#{$uprogress-position}) .';\n  }\n  @if length($colors) > 1 {\n    @keyframes #{$name} {\n      0% {\n        background-position: 0 0;\n      }\n\n      100% {\n        background-position: (100% + 100% / length($colors)) 0;\n      }\n    }\n    @keyframes fadein {\n      0% {\n        opacity: 0;\n      }\n\n      100% {\n        opacity: 1;\n      }\n    }\n  }\n\n  .#{$name} {\n    #{$position}: 0;\n    right: 0;\n    left: 0;\n    z-index: $uprogress-zindex;\n    height: $height * 4;\n    overflow: hidden;\n\n    @if length($colors) == 1 {\n      .blur {\n        position: absolute;\n        right: 1px;\n        width: $height * 50;\n        height: 100%;\n        box-shadow: 0 0 $height * 4 nth($colors, 1), 0 0 $height * 2 nth($colors, 1);\n\n        @if $position == 'top' {\n          transform: rotate(3deg) translateY(-$height * 1.5);\n        } @else {\n          transform: rotate(-3deg) translateY($height * 1.5);\n        }\n      }\n\n      &.rtl .blur {\n        left: 1px;\n\n        @if $position == 'top' {\n          transform: rotate(-3deg) translateY(-$height * 1.5);\n        } @else {\n          transform: rotate(3deg) translateY($height * 1.5);\n        }\n      }\n    }\n\n    .bar {\n      position: absolute;\n      #{$position}: 0;\n      height: $height;\n      pointer-events: none;\n      background-color: nth($colors, 1);\n      will-change: transform;\n\n      @if length($colors) > 1 {\n        $gradient-colors: append($colors, nth($colors, 1));\n        background-image: linear-gradient(to right, $gradient-colors);\n        background-size: length($gradient-colors) * 100%;\n        animation-name: #{$name}, fadein;\n        animation-duration: 2s, .3s;\n        animation-timing-function: linear, ease;\n        animation-iteration-count: infinite, 1;\n      }\n    }\n  }\n",
+          "line": {
+            "start": 50,
+            "end": 141
+          }
+        }
+      }
+    ]
+  },
+  {
+    "description": "Default µProgress posistion (`top` or `bottom`).\n",
+    "commentRange": {
+      "start": 10,
+      "end": 11
+    },
+    "context": {
+      "type": "variable",
+      "name": "uprogress-position",
+      "value": "'top'",
+      "scope": "default",
+      "line": {
+        "start": 12,
+        "end": 12
+      }
+    },
+    "type": "String",
+    "access": "public",
+    "group": [
+      "undefined"
+    ],
+    "file": {
+      "path": "_variables.scss",
+      "name": "_variables.scss"
+    },
+    "usedBy": [
+      {
+        "description": "Mixin to generate a custom μProgress style. Allow to customize, class name, height and colors.\nGenerate a monochrome progres bar if one colors is passed or a multi-color animated one if multiple colors are passed.\n\n",
+        "context": {
+          "type": "mixin",
+          "name": "uprogress",
+          "code": "\n  @if $colors == null or length($colors) == 0 {\n    $colors: $uprogress-colors;\n\n    @warn '$colors is null or empty, using default $uprogress-colors (#{$uprogress-colors}) .';\n  }\n  @if $height == null {\n    $height: $uprogress-height;\n\n    @warn '$height is null, using default $uprogress-height (#{$uprogress-height}) .';\n  }\n  @if index($valid-position, $position) == null {\n    $position: $uprogress-position;\n\n    @warn '$position is not valid, using default $uprogress-position (#{$uprogress-position}) .';\n  }\n  @if length($colors) > 1 {\n    @keyframes #{$name} {\n      0% {\n        background-position: 0 0;\n      }\n\n      100% {\n        background-position: (100% + 100% / length($colors)) 0;\n      }\n    }\n    @keyframes fadein {\n      0% {\n        opacity: 0;\n      }\n\n      100% {\n        opacity: 1;\n      }\n    }\n  }\n\n  .#{$name} {\n    #{$position}: 0;\n    right: 0;\n    left: 0;\n    z-index: $uprogress-zindex;\n    height: $height * 4;\n    overflow: hidden;\n\n    @if length($colors) == 1 {\n      .blur {\n        position: absolute;\n        right: 1px;\n        width: $height * 50;\n        height: 100%;\n        box-shadow: 0 0 $height * 4 nth($colors, 1), 0 0 $height * 2 nth($colors, 1);\n\n        @if $position == 'top' {\n          transform: rotate(3deg) translateY(-$height * 1.5);\n        } @else {\n          transform: rotate(-3deg) translateY($height * 1.5);\n        }\n      }\n\n      &.rtl .blur {\n        left: 1px;\n\n        @if $position == 'top' {\n          transform: rotate(-3deg) translateY(-$height * 1.5);\n        } @else {\n          transform: rotate(3deg) translateY($height * 1.5);\n        }\n      }\n    }\n\n    .bar {\n      position: absolute;\n      #{$position}: 0;\n      height: $height;\n      pointer-events: none;\n      background-color: nth($colors, 1);\n      will-change: transform;\n\n      @if length($colors) > 1 {\n        $gradient-colors: append($colors, nth($colors, 1));\n        background-image: linear-gradient(to right, $gradient-colors);\n        background-size: length($gradient-colors) * 100%;\n        animation-name: #{$name}, fadein;\n        animation-duration: 2s, .3s;\n        animation-timing-function: linear, ease;\n        animation-iteration-count: infinite, 1;\n      }\n    }\n  }\n",
+          "line": {
+            "start": 50,
+            "end": 141
+          }
+        }
+      },
+      {
+        "description": "Mixin to generate a custom μProgress style. Allow to customize, class name, height and colors.\nGenerate a monochrome progres bar if one colors is passed or a multi-color animated one if multiple colors are passed.\n\n",
+        "context": {
+          "type": "mixin",
+          "name": "uprogress",
+          "code": "\n  @if $colors == null or length($colors) == 0 {\n    $colors: $uprogress-colors;\n\n    @warn '$colors is null or empty, using default $uprogress-colors (#{$uprogress-colors}) .';\n  }\n  @if $height == null {\n    $height: $uprogress-height;\n\n    @warn '$height is null, using default $uprogress-height (#{$uprogress-height}) .';\n  }\n  @if index($valid-position, $position) == null {\n    $position: $uprogress-position;\n\n    @warn '$position is not valid, using default $uprogress-position (#{$uprogress-position}) .';\n  }\n  @if length($colors) > 1 {\n    @keyframes #{$name} {\n      0% {\n        background-position: 0 0;\n      }\n\n      100% {\n        background-position: (100% + 100% / length($colors)) 0;\n      }\n    }\n    @keyframes fadein {\n      0% {\n        opacity: 0;\n      }\n\n      100% {\n        opacity: 1;\n      }\n    }\n  }\n\n  .#{$name} {\n    #{$position}: 0;\n    right: 0;\n    left: 0;\n    z-index: $uprogress-zindex;\n    height: $height * 4;\n    overflow: hidden;\n\n    @if length($colors) == 1 {\n      .blur {\n        position: absolute;\n        right: 1px;\n        width: $height * 50;\n        height: 100%;\n        box-shadow: 0 0 $height * 4 nth($colors, 1), 0 0 $height * 2 nth($colors, 1);\n\n        @if $position == 'top' {\n          transform: rotate(3deg) translateY(-$height * 1.5);\n        } @else {\n          transform: rotate(-3deg) translateY($height * 1.5);\n        }\n      }\n\n      &.rtl .blur {\n        left: 1px;\n\n        @if $position == 'top' {\n          transform: rotate(-3deg) translateY(-$height * 1.5);\n        } @else {\n          transform: rotate(3deg) translateY($height * 1.5);\n        }\n      }\n    }\n\n    .bar {\n      position: absolute;\n      #{$position}: 0;\n      height: $height;\n      pointer-events: none;\n      background-color: nth($colors, 1);\n      will-change: transform;\n\n      @if length($colors) > 1 {\n        $gradient-colors: append($colors, nth($colors, 1));\n        background-image: linear-gradient(to right, $gradient-colors);\n        background-size: length($gradient-colors) * 100%;\n        animation-name: #{$name}, fadein;\n        animation-duration: 2s, .3s;\n        animation-timing-function: linear, ease;\n        animation-iteration-count: infinite, 1;\n      }\n    }\n  }\n",
+          "line": {
+            "start": 50,
+            "end": 141
+          }
+        }
+      },
+      {
+        "description": "Mixin to generate a custom μProgress style. Allow to customize, class name, height and colors.\nGenerate a monochrome progres bar if one colors is passed or a multi-color animated one if multiple colors are passed.\n\n",
+        "context": {
+          "type": "mixin",
+          "name": "uprogress",
+          "code": "\n  @if $colors == null or length($colors) == 0 {\n    $colors: $uprogress-colors;\n\n    @warn '$colors is null or empty, using default $uprogress-colors (#{$uprogress-colors}) .';\n  }\n  @if $height == null {\n    $height: $uprogress-height;\n\n    @warn '$height is null, using default $uprogress-height (#{$uprogress-height}) .';\n  }\n  @if index($valid-position, $position) == null {\n    $position: $uprogress-position;\n\n    @warn '$position is not valid, using default $uprogress-position (#{$uprogress-position}) .';\n  }\n  @if length($colors) > 1 {\n    @keyframes #{$name} {\n      0% {\n        background-position: 0 0;\n      }\n\n      100% {\n        background-position: (100% + 100% / length($colors)) 0;\n      }\n    }\n    @keyframes fadein {\n      0% {\n        opacity: 0;\n      }\n\n      100% {\n        opacity: 1;\n      }\n    }\n  }\n\n  .#{$name} {\n    #{$position}: 0;\n    right: 0;\n    left: 0;\n    z-index: $uprogress-zindex;\n    height: $height * 4;\n    overflow: hidden;\n\n    @if length($colors) == 1 {\n      .blur {\n        position: absolute;\n        right: 1px;\n        width: $height * 50;\n        height: 100%;\n        box-shadow: 0 0 $height * 4 nth($colors, 1), 0 0 $height * 2 nth($colors, 1);\n\n        @if $position == 'top' {\n          transform: rotate(3deg) translateY(-$height * 1.5);\n        } @else {\n          transform: rotate(-3deg) translateY($height * 1.5);\n        }\n      }\n\n      &.rtl .blur {\n        left: 1px;\n\n        @if $position == 'top' {\n          transform: rotate(-3deg) translateY(-$height * 1.5);\n        } @else {\n          transform: rotate(3deg) translateY($height * 1.5);\n        }\n      }\n    }\n\n    .bar {\n      position: absolute;\n      #{$position}: 0;\n      height: $height;\n      pointer-events: none;\n      background-color: nth($colors, 1);\n      will-change: transform;\n\n      @if length($colors) > 1 {\n        $gradient-colors: append($colors, nth($colors, 1));\n        background-image: linear-gradient(to right, $gradient-colors);\n        background-size: length($gradient-colors) * 100%;\n        animation-name: #{$name}, fadein;\n        animation-duration: 2s, .3s;\n        animation-timing-function: linear, ease;\n        animation-iteration-count: infinite, 1;\n      }\n    }\n  }\n",
+          "line": {
+            "start": 50,
+            "end": 141
+          }
+        }
+      }
+    ]
+  }
+]

@@ -1,0 +1,18 @@
+{
+  "indent-width": 2,
+  "id-class-style": false,
+  "attr-name-style": "dash",
+  "attr-name-ignore-regex": "viewBox",
+  "attr-bans": [
+    "align",
+    "background",
+    "bgcolor",
+    "border",
+    "frameborder",
+    "longdesc",
+    "marginwidth",
+    "marginheight",
+    "scrolling",
+    "style"
+  ]
+}
