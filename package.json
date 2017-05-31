@@ -1,0 +1,25 @@
+{
+  "name": "uprogress",
+  "version": "0.0.1",
+  "description": "μProgress - Slim, lightweight and performant (GPU animation) progress bar",
+  "main": "dist/uprogress.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vanduynslagerp/uprogress.git"
+  },
+  "keywords": [
+    "component",
+    "progressbar",
+    "css",
+    "javascript"
+  ],
+  "author": "Pierre Vanduynslager <pierre.denis.vanduynslager@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/vanduynslagerp/uprogress/issues"
+  },
+  "homepage": "https://github.com/vanduynslagerp/uprogress#readme"
+}
