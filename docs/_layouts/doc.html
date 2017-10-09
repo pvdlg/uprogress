@@ -1,0 +1,16 @@
+---
+layout: base
+---
+
+<input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox">
+<label for="sidebar-checkbox" class="sidebar-toggle">
+  <div class="sidebar-toggle-box">
+    <div class="sidebar-toggle-inner"></div>
+  </div>
+</label>
+<section class="fix-sidebar container">
+  {% include sidebar.html %}
+  <div id="content" class="content">
+    {{ content | anchors }}
+  </div>
+</section>

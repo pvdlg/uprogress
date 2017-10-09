@@ -1,0 +1,7 @@
+@include uprogress('uprogress-multi', 5px, (color('teal'), color('purple'), color('orange'), color('green')));
+@include uprogress('uprogress-purple', 2px, color('purple'));
+@include uprogress('uprogress-red', 2px, color('red'));
+@include uprogress('uprogress-green', 2px, color('green'));
+@include uprogress($name: 'uprogress-bottom', $position: 'bottom');
+@include uprogress('uprogress-lg', 8px);
+@include uprogress($name: 'uprogress-bottom-orange', $height: 6px, $colors: color('orange'), $position: 'bottom');

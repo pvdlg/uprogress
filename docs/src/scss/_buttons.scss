@@ -1,0 +1,93 @@
+// --------------------------------------------------------
+// Component: Buttons
+// --------------------------------------------------------
+
+.btn {
+  display: inline-block;
+  padding: $btn-padding-y $btn-padding-x;
+  font-size: $font-size;
+  font-weight: 400;
+  line-height: $btn-line-height;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  cursor: pointer;
+  user-select: none;
+  border: $border-width solid transparent;
+  border-radius: $border-radius;
+
+  &:hover,
+  &:focus {
+    text-decoration: none;
+    outline: 0;
+  }
+
+  &.disabled,
+  &:disabled {
+    // cursor: $cursor-disabled;
+    opacity: $btn-disabled-opacity;
+  }
+}
+
+// // Block button
+// .btn-block {
+//   display: block;
+//   width: 100%;
+// }
+//
+// // Vertically space out multiple block buttons
+// .btn-block + .btn-block {
+//   margin-top: $btn-block-spacing-y;
+// }
+
+// // Specificity overrides
+// /* stylelint-disable selector-no-qualifying-type, selector-no-type */
+// input[type='button'],
+// input[type='reset'],
+// input[type='submit'] {
+//   &.btn-block {
+//     width: 100%;
+//   }
+// }
+
+.btn-primary {
+  @include button($theme-color);
+}
+
+.btn-outline-primary {
+  @include button-outline($theme-color);
+}
+
+.btn-secondary {
+  @include button-variant(
+    $body-color, gray('x-light'), darken(gray('x-light'), 6.5%), gray('light'), $border-color, none);
+}
+
+// .btn-blue {
+//   @include button-variant($white, color(blue), color(blue, dark), color(blue, dark), color(blue, dark), $button-text-shadow);
+// }
+//
+// .btn-green {
+//   @include button-variant($white, color(green), color(green, dark), color(green, dark), color(green, dark), $button-text-shadow);
+// }
+//
+// .btn-danger {
+//   @include button-variant($btn-danger-color, $btn-danger-bg, $btn-danger-bg-dark, $btn-danger-bg-active, $btn-danger-border, $mh-button-text-shadow);
+// }
+//
+// .btn-emph {
+//   @include button-variant($btn-emph-color, $btn-emph-bg, $btn-emph-bg-dark, $btn-emph-bg-active, $btn-emph-border, $mh-button-text-shadow);
+// }
+//
+
+// .btn-outline-blue {
+//   @include button-outline-variant(color(blue), $white, color(blue, x-light), color(blue, x-light), color(blue), color(blue, x-dark));
+// }
+
+// .btn-outline-green {
+//   @include button-outline-variant(color(green), $white, color(green, x-light), color(green, x-light), color(green), color(green, x-dark));
+// }
+
+// .btn-outline-danger {
+//   @include button-outline-variant($btn-outline-danger-color, $btn-outline-danger-bg, $btn-outline-danger-bg-dark, $btn-outline-danger-bg-active, $btn-outline-danger-border, $btn-outline-danger-active-box-shadow-color);
+// }

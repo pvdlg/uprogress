@@ -1,0 +1,87 @@
+// Theme
+$theme-color: 'blue';
+
+// Base style
+// stylelint-disable-next-line value-keyword-case
+$font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+$font-size: 1rem;
+$font-weight: normal;
+$line-height: 1.5;
+$link-color: color($theme-color);
+$link-decoration: none;
+$link-hover-color: color($theme-color, 'dark');
+$link-hover-decoration: underline;
+
+// Responsive
+$mobile-bp: 768px;
+
+// Layout
+$spacer-sm: .5rem;
+$spacer: 1rem;
+$spacer-lg: 1.5rem;
+$header-height: 4rem;
+$container-padding: 2rem;
+$container-padding-mobile: 1rem;
+
+$z-index-header: 1000;
+$z-index-sidebar-toggle: 1010;
+
+// Colors
+$text-muted: gray('light');
+$body-color: gray('dark');
+$body-bg: $white;
+
+// Border
+$border-width: 1px;
+$border-radius: .25rem;
+$border-color: #d8d8d8;
+$inner-border-color: #eee;
+
+// Table
+$table-cell-padding: .5rem;
+
+// Nav-link
+$nav-link-color: gray('medium');
+$nav-link-hover-color: gray('dark');
+$nav-link-active-color: gray('x-dark');
+
+// Navbar
+$navbar-active-shadow-width: .2rem;
+$navbar-brand-font-size: 1.25rem;
+$navbar-brand-width: 12rem;
+
+// Sidebar
+$sidebar-width: 15rem;
+$sidebar-active-shadow-width: .2rem;
+$sidebar-transition-duration: .3s;
+$sidebar-transition-function: ease-in-out;
+$sidebar-label-padding: 1rem;
+$sidebar-submenu-label-padding: $sidebar-label-padding + .5rem;
+
+// Sidebar toggle
+$sidebar-toggle-layer-width: 1.875rem;
+$sidebar-toggle-layer-height: .25rem;
+$sidebar-toggle-layer-spacing: .25rem;
+
+// Scrollbar
+$scrollbar-track-box-shadow: inset 1px 1px 2px rgba($black, .125);
+$scrollbar-thumb-shadow: inset 1px 1px 2px rgba($black, .125);
+$scrollbar-thumb-shadow-hover: inset 1px 1px 8px rgba($black, .25);
+$scrollbar-thumb-shadow-active: inset 1px 1px 8px rgba($black, .375);
+$scrollbar-width: .375rem;
+
+// Buttons
+$btn-padding-y: .5rem;
+$btn-padding-x: .75rem;
+$btn-line-height: 1.25;
+$btn-text-shadow: 0 -1px 0 rgba($black, .15);
+$btn-active-box-shadow-position: inset 0 2px 4px;
+$btn-active-box-shadow-alpha: .075;
+$btn-active-box-shadow: $btn-active-box-shadow-position rgba($black, $btn-active-box-shadow-alpha);
+$btn-disabled-opacity: .5;
+
+$tooltip-max-width: 250px;
+$tooltip-background-color: rgba($black, .8);
+$tooltip-text-color: $white;
+$tooltip-delay: 0;
+$tooltip-duration: .1s;

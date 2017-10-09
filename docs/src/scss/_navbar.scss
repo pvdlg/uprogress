@@ -1,0 +1,101 @@
+.navbar {
+  display: flex;
+  height: 100%;
+  align-items: center;
+  background-color: $white;
+  border-bottom: $border-width solid $border-color;
+  box-shadow: 0 5px 5px -5px rgba($black, .1);
+}
+
+.navbar-brand {
+  position: absolute;
+  left: 50%;
+  width: $navbar-brand-width;
+  padding: ($spacer / 2) 0;
+  margin-right: auto;
+  margin-left: -$navbar-brand-width / 2;
+  font-size: $navbar-brand-font-size;
+  font-weight: 500;
+  color: inherit;
+  text-align: center;
+
+  &:focus,
+  &:hover {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  @media screen and (min-width: $mobile-bp) {
+    position: static;
+    width: auto;
+    margin-left: 0;
+  }
+}
+
+.nav-icon {
+  font-size: 2rem;
+  color: inherit;
+
+  &:hover {
+    color: color($theme-color);
+    text-decoration: none;
+  }
+
+  .octicon {
+    vertical-align: baseline;
+  }
+}
+
+.nav-item {
+  display: flex;
+  height: 100%;
+  margin-bottom: -$border-width;
+  align-items: center;
+
+  &.active,
+  &:hover {
+    box-shadow: inset 0 (-$navbar-active-shadow-width) 0 0 color($theme-color);
+  }
+}
+
+.navbar-nav {
+  display: flex;
+  height: 100%;
+  margin-left: auto;
+  align-items: center;
+
+  @media screen and (min-width: $mobile-bp) {
+    display: none;
+  }
+}
+
+.navbar-nav-lg {
+  display: none;
+  height: 100%;
+
+  @media screen and (min-width: $mobile-bp) {
+    display: flex;
+    margin-left: auto;
+    align-items: center;
+
+    .btn {
+      margin-left: $spacer;
+    }
+  }
+}
+
+.nav-link {
+  display: block;
+  padding: .5em;
+  font-weight: 600;
+  color: $nav-link-color;
+
+  &:hover {
+    color: $nav-link-hover-color;
+    text-decoration: none;
+  }
+
+  .nav-item.active & {
+    color: $nav-link-active-color;
+  }
+}

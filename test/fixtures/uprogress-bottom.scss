@@ -1,0 +1,3 @@
+@import '../../src/scss/mixin';
+
+@include uprogress($name: 'uprogress-bottom', $position: 'bottom');

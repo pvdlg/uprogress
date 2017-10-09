@@ -1,0 +1,141 @@
+@import 'variables';
+
+/// Valid values for the $position parameter.
+/// @type List<String>
+/// @access private
+$valid-position: 'top', 'bottom';
+
+/// Mixin to generate a custom μProgress style. Allow to customize, class name, height and colors.
+/// Generate a monochrome progres bar if one colors is passed or a multi-color animated one if multiple colors are passed.
+///
+/// @param {String} $name [uprogress] - class to apply to the μProgress.
+/// @param {Length} $height [`$uprogress-height`] - progressbar height.
+/// @param {List<Color>} $colors [`$uprogress-colors`] - List of Colors.
+/// @param {String} $position [`$uprogress-position`] - Position the µProgress on top or on bottom of its parent.
+/// @output A CSS class to pass in the `class` option of the `UProgress` Javascript module.
+///
+/// @example scss - A purple progress bar with a height of .25rem
+///   @include uprogress(purple-progress, .25rem, rgb(113, 62, 208));
+///
+///   // CSS Output
+///   .purple-progress {
+///     ...
+///     top: 0;
+///     height: .25rem;
+///     ...
+///     background-color: rgb(113, 62, 208);
+///   }
+///   .purple-progress.blur {
+///     ...
+///     color: rgb(113, 62, 208);
+///     ...
+///   }
+///
+/// @example scss - A multi-color progress bar with default height (2px)
+///   @include uprogress($name: rainbow-progress, $colors: (#17a0d3, #713ed0, #fc8d03, #38ad5d), $position: 'bottom');
+///
+///   // CSS Output
+///   .purple-progress {
+///     ...
+///     bottom: 0;
+///     height: 2px;
+///     ...
+///     background-color: #17a0d3;
+///     background-image: linear-gradient(to right, #17a0d3, #713ed0, #fc8d03, #38ad5d, #17a0d3);
+///     background-size: 500%;
+///     animation: 2s linear infinite rainbow-progress, 0.3s fadein;
+///   }
+///   @keyframes fadein { ... }
+///   @keyframes rainbow-progress { ... }
+@mixin uprogress(
+  $name: 'uprogress', $height: $uprogress-height, $colors: $uprogress-colors, $position: $uprogress-position) {
+  @if $colors == null or length($colors) == 0 {
+    $colors: $uprogress-colors;
+
+    @warn '$colors is null or empty, using default $uprogress-colors (#{$uprogress-colors}) .';
+  }
+  @if $height == null {
+    $height: $uprogress-height;
+
+    @warn '$height is null, using default $uprogress-height (#{$uprogress-height}) .';
+  }
+  @if index($valid-position, $position) == null {
+    $position: $uprogress-position;
+
+    @warn '$position is not valid, using default $uprogress-position (#{$uprogress-position}) .';
+  }
+  @if length($colors) > 1 {
+    @keyframes #{$name} {
+      0% {
+        background-position: 0 0;
+      }
+
+      100% {
+        background-position: (100% + 100% / length($colors)) 0;
+      }
+    }
+    @keyframes fadein {
+      0% {
+        opacity: 0;
+      }
+
+      100% {
+        opacity: 1;
+      }
+    }
+  }
+
+  .#{$name} {
+    #{$position}: 0;
+    right: 0;
+    left: 0;
+    z-index: $uprogress-zindex;
+    height: $height * 4;
+    overflow: hidden;
+
+    @if length($colors) == 1 {
+      .blur {
+        position: absolute;
+        right: 1px;
+        width: $height * 50;
+        height: 100%;
+        box-shadow: 0 0 $height * 4 nth($colors, 1), 0 0 $height * 2 nth($colors, 1);
+
+        @if $position == 'top' {
+          transform: rotate(3deg) translateY(-$height * 1.5);
+        } @else {
+          transform: rotate(-3deg) translateY($height * 1.5);
+        }
+      }
+
+      &.rtl .blur {
+        left: 1px;
+
+        @if $position == 'top' {
+          transform: rotate(-3deg) translateY(-$height * 1.5);
+        } @else {
+          transform: rotate(3deg) translateY($height * 1.5);
+        }
+      }
+    }
+
+    .bar {
+      position: absolute;
+      #{$position}: 0;
+      height: $height;
+      pointer-events: none;
+      background-color: nth($colors, 1);
+      will-change: transform;
+
+      @if length($colors) > 1 {
+        $gradient-colors: append($colors, nth($colors, 1));
+        background-image: linear-gradient(to right, $gradient-colors);
+        background-size: length($gradient-colors) * 100%;
+        animation-name: #{$name}, fadein;
+        animation-duration: 2s, .3s;
+        animation-timing-function: linear, ease;
+        animation-iteration-count: infinite, 1;
+      }
+    }
+  }
+}

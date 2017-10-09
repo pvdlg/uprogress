@@ -1,0 +1,45 @@
+# Build
+markdown: kramdown
+kramdown:
+  input: GFM
+  syntax_highlighter: rouge
+  auto_ids: true
+plugins:
+  - jekyll-github-metadata
+  - jekyll-seo-tag
+  - jekyll-sitemap
+  - jekyll-octicons
+
+# Permalinks
+permalink: pretty
+
+# Server
+source: .
+destination: ./_site
+baseurl: "/uprogress"
+port: 3000
+show_dir_listing: false
+url: https://pvdlg.github.io/uprogress
+encoding: UTF-8
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - src
+
+# Meta
+title: μProgress
+title_prefix: μProgress -
+version: v1.0.0
+description: Slim, lightweight and performant progress bar
+repository: pvdlg/uprogress
+lang: en_US
+logo: /assets/images/default-card.png
+defaults:
+  - scope:
+      path: ""
+    values:
+      image: /assets/images/default-card.png
+twitter:
+  username: pvdlg_
+github:
+  username:  pvdlg

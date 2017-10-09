@@ -1,0 +1,6 @@
+{% if jekyll.environment == "development" %}
+  <script src="/assets/js/uprogress.js"></script>
+  <script src="/assets/js/docs.js"></script>
+{% else %}
+  <script src="{{ site.baseurl }}/assets/js/docs.min.js"></script>
+{% endif %}

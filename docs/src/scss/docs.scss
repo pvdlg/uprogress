@@ -1,0 +1,36 @@
+@import 'normalize.css';
+@import 'colors';
+@import 'variables';
+
+@import 'mixins/clearfix';
+@import 'mixins/buttons';
+@import 'mixins/gradients';
+
+@import 'reset';
+@import 'octicons/build/octicons.css';
+@import '../../../src/scss/variables';
+@import '../../../src/scss/mixin';
+@import 'progress-alt';
+@import 'scrollbar';
+@import 'layout';
+@import 'type';
+@import 'anchor-link';
+@import 'table';
+@import 'code';
+@import 'syntax';
+@import 'logo';
+@import 'navbar';
+@import 'buttons';
+@import 'sidebar';
+@import 'example';
+@import 'primer-tooltips/index';
+
+.octicon {
+  width: $line-height * $font-size;
+  height: $line-height * $font-size;
+
+  .btn & {
+    width: $btn-line-height * $font-size;
+    height: $btn-line-height * $font-size;
+  }
+}
