@@ -1,1 +1,1 @@
-Sitemap: http://localhost:3000/sitemap.xml
+Sitemap: https://pvdlg.github.io/uprogress/sitemap.xml

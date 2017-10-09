@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url>
-<loc>http://localhost:3000/examples/</loc>
+<loc>https://pvdlg.github.io/uprogress/examples/</loc>
 </url>
 <url>
-<loc>http://localhost:3000/getting-started/</loc>
+<loc>https://pvdlg.github.io/uprogress/getting-started/</loc>
 </url>
 <url>
-<loc>http://localhost:3000/</loc>
+<loc>https://pvdlg.github.io/uprogress/</loc>
 </url>
 <url>
-<loc>http://localhost:3000/js-api/</loc>
+<loc>https://pvdlg.github.io/uprogress/js-api/</loc>
 </url>
 <url>
-<loc>http://localhost:3000/sass-api/</loc>
+<loc>https://pvdlg.github.io/uprogress/sass-api/</loc>
 </url>
 </urlset>
