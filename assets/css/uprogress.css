@@ -1,0 +1,39 @@
+.uprogress {
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 1000;
+  height: 8px;
+  overflow: hidden;
+}
+
+.uprogress .blur {
+  position: absolute;
+  right: 1px;
+  width: 100px;
+  height: 100%;
+  -webkit-box-shadow: 0 0 8px #006be5, 0 0 4px #006be5;
+          box-shadow: 0 0 8px #006be5, 0 0 4px #006be5;
+  -webkit-transform: rotate(3deg) translateY(-3px);
+     -moz-transform: rotate(3deg) translateY(-3px);
+       -o-transform: rotate(3deg) translateY(-3px);
+          transform: rotate(3deg) translateY(-3px);
+}
+
+.uprogress.rtl .blur {
+  left: 1px;
+  -webkit-transform: rotate(-3deg) translateY(-3px);
+     -moz-transform: rotate(-3deg) translateY(-3px);
+       -o-transform: rotate(-3deg) translateY(-3px);
+          transform: rotate(-3deg) translateY(-3px);
+}
+
+.uprogress .bar {
+  position: absolute;
+  top: 0;
+  height: 2px;
+  pointer-events: none;
+  background-color: #006be5;
+  will-change: transform;
+}
+/*# sourceMappingURL=uprogress.css.map */
