@@ -1,7 +1,7 @@
 {
   "name": "uprogress",
   "description": "Lightweight and performant progress bar",
-  "version": "1.0.0",
+  "version": "0.0.0-development",
   "author": "Pierre Vanduynslager <pierre.denis.vanduynslager@gmail.com>",
   "browserslist": [
     "ie >= 10",
@@ -204,7 +204,8 @@
     "watch:docs-scss": "chokidar 'docs/src/scss/**/*.scss' 'src/scss/**/*.scss' -c 'npm run docs:docs-scss' --initial",
     "watch:js": "npm run docs:js -- -w",
     "watch:scss": "chokidar 'src/scss/*.scss' -c 'npm run docs:scss' --initial",
-    "watch:unit-test": "karma start build/karma.config.js"
+    "watch:unit-test": "karma start build/karma.config.js",
+    "prepublishOnly": "npm run build"
   },
   "style": "dist/uprogress.css"
 }
