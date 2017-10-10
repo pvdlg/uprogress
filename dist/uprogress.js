@@ -757,7 +757,7 @@ var UProgress = function () {
     this._opts.doneDuration = Math.max(this._opts.doneDuration, 0);
     this._opts.fadeDuration = Math.max(this._opts.fadeDuration, 0);
     if (opts && opts.class) {
-      this._wrapper.className = '' + this._opts.class + (this._rtl ? ' rtl' : '');
+      this._wrapper.className = '' + this._opts.class;
     }
     if (opts && opts.blurClass) {
       this._blur.className = this._opts.blurClass;
