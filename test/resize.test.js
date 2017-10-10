@@ -2,7 +2,6 @@
 import CustomEvent from 'custom-event';
 import {getVendorCSSProp} from '../src/js/util';
 import {getCSSPosition, getExpectedCSSPosition, getExpectedCSSTransitionDuration} from './helpers/util';
-// Import toBeCloseTo from './helpers/toBeCloseTo';
 
 describe('Resizing the window', () => {
   let originalDefault;
@@ -80,6 +79,32 @@ describe('Resizing the window', () => {
     $html.css('width', '');
   });
 
+  it("shoud change the width of the progressbar to be equals to the parent's (div) with rtl", () => {
+    loadFixtures('parent.html');
+    const $parent = $('#parent');
+    const $html = $('html');
+
+    $parent.css({
+      height: '100px',
+      'margin-right': '50px',
+      'margin-left': '50px',
+    });
+    const up = new UProgress($parent[0], {rtl: true});
+
+    up.start();
+    const $uProgress = $('#parent > div.uprogress');
+    const $uProgressBar = $('#parent > div.uprogress > .bar');
+
+    expect($uProgress.width()).toBe($parent.width());
+    $html.css('width', `${$html.width() * 0.8}px`);
+    window.dispatchEvent(new CustomEvent('resize'));
+    jasmine.clock().tick(UProgress.Default.resizeDebounce);
+    expect($uProgress.width()).toBe($parent[0].clientWidth);
+    expect($uProgressBar.width()).toBe($parent[0].clientWidth);
+    up.destroy();
+    $html.css('width', '');
+  });
+
   it('shoud maintain the status during resize with document.body parent', () => {
     UProgress.Default.resizeDebounce = 0;
     const resizeTimeout = UProgress.Default.duration / 2;
@@ -98,6 +123,30 @@ describe('Resizing the window', () => {
 
     expect(status.duration).toBe(newStatus.duration);
     expect(status.progress).toBe(newStatus.progress);
+    up.destroy();
+    $html.css('width', '');
+  });
+
+  it("shoud change the width of the progressbar to be equals to the parent's if not started", () => {
+    loadFixtures('parent.html');
+    const $parent = $('#parent');
+    const $html = $('html');
+
+    $parent.css({
+      height: '100px',
+      'margin-right': '50px',
+      'margin-left': '50px',
+    });
+    const up = new UProgress($parent[0]);
+    const $uProgress = $('#parent > div');
+    const $uProgressBar = $('#parent > div > .bar');
+
+    expect($uProgress.width()).toBe($parent.width());
+    $html.css('width', `${$html.width() * 0.8}px`);
+    window.dispatchEvent(new CustomEvent('resize'));
+    jasmine.clock().tick(UProgress.Default.resizeDebounce);
+    expect($uProgress.width()).toBe($parent[0].clientWidth);
+    expect($uProgressBar.width()).toBe($parent[0].clientWidth);
     up.destroy();
     $html.css('width', '');
   });
