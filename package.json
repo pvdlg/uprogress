@@ -62,7 +62,7 @@
     "cross-env": "^5.0.5",
     "cssnano": "next",
     "custom-event": "^1.0.1",
-    "dom101": "^2.0.1",
+    "dom101": "^2.2.1",
     "eslint": "^4.8.0",
     "eslint-config-prettier": "^2.6.0",
     "eslint-config-pretty": "^2.1.1",
