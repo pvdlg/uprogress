@@ -57,7 +57,7 @@
     "bundlesize": "^0.15.2",
     "chokidar-cli": "^1.2.0",
     "clipboard": "^1.7.1",
-    "codecov": "^2.3.0",
+    "codecov": "^3.0.0",
     "conventional-changelog-metahub": "^1.2.1",
     "cross-env": "^5.0.5",
     "cssnano": "next",
