@@ -98,7 +98,7 @@
     "postcss-cli": "^4.1.1",
     "prettier": "^1.7.4",
     "primer-tooltips": "^1.4.0",
-    "read-pkg": "^2.0.0",
+    "read-pkg": "^3.0.0",
     "rimraf": "^2.6.2",
     "rollup": "^0.50.0",
     "rollup-plugin-babel": "^3.0.2",
