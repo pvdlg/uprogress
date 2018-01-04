@@ -1,3 +1,6 @@
+/* eslint-env jasmine, jquery, browser */
+/* global UProgress, loadFixtures */
+
 describe('Creation of the progress bar', () => {
   let originalDefault;
 

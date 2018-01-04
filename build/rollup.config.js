@@ -7,7 +7,7 @@ const commonjs = require('rollup-plugin-commonjs');
 const inject = require('rollup-plugin-inject');
 const uglify = require('rollup-plugin-uglify');
 const conditional = require('rollup-plugin-conditional');
-const istanbul = require('rollup-plugin-istanbul');
+const istanbul = require('rollup-plugin-istanbul'); // eslint-disable-line import/no-unresolved
 const globImport = require('rollup-plugin-glob-import');
 
 const {MIN = false, TEST = false} = process.env;
@@ -19,7 +19,7 @@ module.exports = {
     format: 'umd',
   },
   plugins: [
-    conditional(TEST, [globImport(), istanbul({include: [`src/js/${pkg.name}.js`], sourceMap: true})]),
+    conditional(TEST, [globImport(), istanbul({include: [`src/js/${pkg.name}.js`]})]),
     nodeResolve(),
     commonjs({include: ['node_modules/**/*']}),
     inject({window: 'window', document: 'document'}),

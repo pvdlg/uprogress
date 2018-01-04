@@ -1,3 +1,6 @@
+/* eslint-env jasmine, jquery, browser */
+/* global UProgress */
+
 import {getVendorCSSProp, TRANSITION_END_EVENT} from '../src/js/util';
 import {getCSSPosition, getExpectedCSSPosition, getExpectedCSSTransitionDuration} from './helpers/util';
 

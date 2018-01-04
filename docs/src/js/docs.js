@@ -1,7 +1,10 @@
+/* eslint-env jasmine, jquery, browser */
+/* global UProgress */
+
 import ready from 'dom101/ready';
 import on from 'dom101/on';
-import './clipboard';
-import './examples';
+import './clipboard'; // eslint-disable-line import/no-unassigned-import
+import './examples'; // eslint-disable-line import/no-unassigned-import
 
 const browserPrefix = ['', '-o-', '-webkit-', '-moz-', '-ms-'];
 const uProgressClases = [

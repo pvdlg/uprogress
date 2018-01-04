@@ -1,3 +1,6 @@
+/* eslint-env jasmine, jquery, browser */
+/* global UProgress */
+
 describe('Destruction of the progress bar', () => {
   beforeAll(() => {
     spyOn(window, 'removeEventListener').and.callThrough();
