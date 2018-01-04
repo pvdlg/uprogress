@@ -1,4 +1,5 @@
 /* eslint-env node */
+/* eslint camelcase: ["error", {properties: "never"}] */
 
 module.exports = {
   SL_Win_IE_10: {base: 'SauceLabs', browserName: 'internet explorer', platform: 'Windows 7', version: '10'},

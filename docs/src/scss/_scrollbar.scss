@@ -5,27 +5,27 @@
 
 // Scrollbar size
 ::-webkit-scrollbar {
-  width: $scrollbar-width;
-  height: $scrollbar-width;
+	width: $scrollbar-width;
+	height: $scrollbar-width;
 }
 
 // Scrollbar track
 ::-webkit-scrollbar-track {
-  background: $body-bg;
-  border: $border-width solid $border-color;
-  box-shadow: $scrollbar-track-box-shadow;
+	border: $border-width solid $border-color;
+	background: $body-bg;
+	box-shadow: $scrollbar-track-box-shadow;
 }
 
 // Scrollbar color
 ::-webkit-scrollbar-thumb {
-  background: color($theme-color);
-  box-shadow: $scrollbar-thumb-shadow;
+	background: color($theme-color);
+	box-shadow: $scrollbar-thumb-shadow;
 
-  &:hover {
-    box-shadow: $scrollbar-thumb-shadow-hover;
-  }
+	&:hover {
+		box-shadow: $scrollbar-thumb-shadow-hover;
+	}
 
-  &:active {
-    box-shadow: $scrollbar-thumb-shadow-active;
-  }
+	&:active {
+		box-shadow: $scrollbar-thumb-shadow-active;
+	}
 }

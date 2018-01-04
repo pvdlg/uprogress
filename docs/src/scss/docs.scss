@@ -1,11 +1,9 @@
 @import 'normalize.css';
 @import 'colors';
 @import 'variables';
-
 @import 'mixins/clearfix';
 @import 'mixins/buttons';
 @import 'mixins/gradients';
-
 @import 'reset';
 @import 'octicons';
 @import '../../../src/scss/variables';
@@ -26,11 +24,11 @@
 @import 'primer-tooltips/index';
 
 .octicon {
-  width: $line-height * $font-size;
-  height: $line-height * $font-size;
+	width: $line-height * $font-size;
+	height: $line-height * $font-size;
 
-  .btn & {
-    width: $btn-line-height * $font-size;
-    height: $btn-line-height * $font-size;
-  }
+	.btn & {
+		width: $btn-line-height * $font-size;
+		height: $btn-line-height * $font-size;
+	}
 }

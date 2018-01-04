@@ -1,3 +1,6 @@
+/* eslint-env jasmine, jquery, browser */
+/* global UProgress */
+
 describe('API', () => {
   let up;
 

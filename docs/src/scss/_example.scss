@@ -1,77 +1,75 @@
 .example {
-  position: relative;
-  padding: 1.5rem 1.5rem 1.5rem - .5rem;
-  margin-top: 2rem;
-  color: rgba(0, 0, 0, .7);
-  color: #fff;
-  text-align: center;
-  border: 1px solid $border-color;
-  border-top-right-radius: 3px;
+	padding: 1.5rem 1.5rem 1.5rem - 0.5rem;
+	border: 1px solid $border-color;
+	border-top-right-radius: 3px;
+	margin-top: 2rem;
+	position: relative;
+	color: rgba(0, 0, 0, 0.7);
+	text-align: center;
 
-  &::before {
-    position: absolute;
-    bottom: 100%;
-    left: -1px;
-    display: inline-block;
-    padding: 3px 5px;
-    font-size: .625rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    vertical-align: top;
-    content: 'Example';
-    background: $border-color;
-    border-radius: 3px 3px 0 0;
-  }
+	&::before {
+		content: 'Example';
+		display: inline-block;
+		padding: 3px 5px;
+		border-radius: 3px 3px 0 0;
+		position: absolute;
+		bottom: 100%;
+		left: -1px;
+		vertical-align: top;
+		background: $border-color;
+		font-size: 0.625rem;
+		font-weight: bold;
+		text-transform: uppercase;
+		letter-spacing: 1px;
+	}
 
-  .btn {
-    margin-bottom: .5rem;
-  }
+	.btn {
+		margin-bottom: 0.5rem;
+	}
 }
 
 .example ~ .highlight {
-  position: relative;
-  margin-bottom: 1rem;
-  border: 1px solid $border-color;
-  border-top: 0;
-  border-radius: 0 0 3px 3px;
+	border: 1px solid $border-color;
+	border-top: 0;
+	border-radius: 0 0 3px 3px;
+	margin-bottom: 1rem;
+	position: relative;
 
-  .copy {
-    position: absolute;
-    top: .25rem;
-    right: .25rem;
-    z-index: 10;
-    display: block;
-    padding: .25rem .5rem;
-    font-size: 75%;
-    color: gray();
-    cursor: pointer;
-    background-color: transparent;
-    border: 0;
-    border-radius: .25rem;
-    outline: 0;
+	.copy {
+		display: block;
+		padding: 0.25rem 0.5rem;
+		border: 0;
+		border-radius: 0.25rem;
+		position: absolute;
+		top: 0.25rem;
+		right: 0.25rem;
+		z-index: 10;
+		color: gray();
+		background-color: transparent;
+		outline: 0;
+		font-size: 75%;
+		cursor: pointer;
 
-    &:hover {
-      color: #fff;
-      background-color: color($theme-color);
-    }
-  }
+		&:hover {
+			color: #fff;
+			background-color: color($theme-color);
+		}
+	}
 
-  + .highlight {
-    margin-top: -1rem;
-  }
+	+ .highlight {
+		margin-top: -1rem;
+	}
 }
 
 .example-block {
-  .highlight:not(:last-child) {
-    border-bottom-right-radius: 0;
-    border-bottom-left-radius: 0;
-  }
+	.highlight:not(:last-child) {
+		border-bottom-left-radius: 0;
+		border-bottom-right-radius: 0;
+	}
 }
 
 .modal {
-  position: relative;
-  padding-top: 3rem;
-  border: $border-width solid $border-color;
+	padding-top: 3rem;
+	border: $border-width solid $border-color;
+	position: relative;
 }
-

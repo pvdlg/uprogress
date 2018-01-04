@@ -1,136 +1,136 @@
 // stylelint-disable selector-max-type, selector-no-qualifying-type
 
 .highlight {
-  padding: 1rem;
-  font-size: 90%;
-  background-color: gray('light');
-  -ms-overflow-style: -ms-autohiding-scrollbar;
+	padding: 1rem;
+	background-color: gray('light');
+	font-size: 90%;
+	-ms-overflow-style: -ms-autohiding-scrollbar;
 
-  pre {
-    margin-bottom: 0;
-  }
+	pre {
+		margin-bottom: 0;
+	}
 }
 
 code.highlighter-rouge {
-  padding: .2rem 0;
-  font-size: 90%;
-  background-color: gray('light');
-  border-radius: $border-radius;
+	padding: 0.2rem 0;
+	border-radius: $border-radius;
+	background-color: gray('light');
+	font-size: 90%;
 
-  &::after,
-  &::before {
-    letter-spacing: -.2em;
-    content: '\00a0';
-  }
+	&::after,
+	&::before {
+		content: '\00a0';
+		letter-spacing: -0.2em;
+	}
 }
 
 // stylelint-enable selector-max-type, selector-no-qualifying-type
 .js,
 .sass {
-  &::before {
-    display: inline-block;
-    min-width: 1.5rem;
-    padding: .125rem .25rem;
-    margin-right: $spacer-sm;
-    font-size: 85%;
-    color: $white;
-    text-align: center;
-    word-wrap: normal;
-    vertical-align: middle;
-    border-radius: 5px;
-  }
+	&::before {
+		display: inline-block;
+		min-width: 1.5rem;
+		padding: 0.125rem 0.25rem;
+		border-radius: 5px;
+		margin-right: $spacer-sm;
+		vertical-align: middle;
+		color: $white;
+		font-size: 85%;
+		text-align: center;
+		word-wrap: normal;
+	}
 
-  &.anchor::before {
-    min-width: 1.25rem;
-    padding: .125rem .5rem;
-    font-size: 65%;
-  }
+	&.anchor::before {
+		min-width: 1.25rem;
+		padding: 0.125rem 0.5rem;
+		font-size: 65%;
+	}
 }
 
 .js {
-  &.class {
-    &::before {
-      font-weight: 600;
-      content: '{ }';
-      background-color: color('red');
-    }
+	&.class {
+		&::before {
+			content: '{ }';
+			background-color: color('red');
+			font-weight: 600;
+		}
 
-    &.anchor::before {
-      content: 'Class';
-    }
-  }
+		&.anchor::before {
+			content: 'Class';
+		}
+	}
 
-  &.constructor {
-    &::before {
-      font-weight: 600;
-      content: 'ƒ';
-      background-color: color('purple');
-    }
+	&.constructor {
+		&::before {
+			content: 'ƒ';
+			background-color: color('purple');
+			font-weight: 600;
+		}
 
-    &.anchor::before {
-      content: 'Constructor';
-    }
-  }
+		&.anchor::before {
+			content: 'Constructor';
+		}
+	}
 
-  &.function {
-    &::before {
-      content: 'ƒ';
-      background-color: color('orange');
-    }
+	&.function {
+		&::before {
+			content: 'ƒ';
+			background-color: color('orange');
+		}
 
-    &.anchor::before {
-      content: 'Function';
-    }
-  }
+		&.anchor::before {
+			content: 'Function';
+		}
+	}
 
-  &.constant {
-    &::before {
-      content: 'C';
-      background-color: color('green');
-    }
+	&.constant {
+		&::before {
+			content: 'C';
+			background-color: color('green');
+		}
 
-    &.anchor::before {
-      content: 'Constant';
-    }
-  }
+		&.anchor::before {
+			content: 'Constant';
+		}
+	}
 
-  &.inner {
-    &::before {
-      content: '{ }';
-      background-color: color('green');
-    }
+	&.inner {
+		&::before {
+			content: '{ }';
+			background-color: color('green');
+		}
 
-    &.anchor::before {
-      content: 'Inner object';
-    }
-  }
+		&.anchor::before {
+			content: 'Inner object';
+		}
+	}
 
-  &.static::before {
-    font-style: italic;
-  }
+	&.static::before {
+		font-style: italic;
+	}
 }
 
 .sass {
-  &.mixin {
-    &::before {
-      font-weight: 600;
-      content: '@';
-      background-color: color('purple');
-    }
+	&.mixin {
+		&::before {
+			content: '@';
+			background-color: color('purple');
+			font-weight: 600;
+		}
 
-    &.anchor::before {
-      content: 'Mixin';
-    }
-  }
+		&.anchor::before {
+			content: 'Mixin';
+		}
+	}
 
-  &.variable {
-    &::before {
-      content: '$';
-      background-color: color('green');
-    }
+	&.variable {
+		&::before {
+			content: '$';
+			background-color: color('green');
+		}
 
-    &.anchor::before {
-      content: 'Variable';
-    }
-  }
+		&.anchor::before {
+			content: 'Variable';
+		}
+	}
 }

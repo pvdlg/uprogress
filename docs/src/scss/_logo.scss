@@ -2,42 +2,41 @@ $logo-height: 1.25rem;
 $logo-animation-duration: 5s;
 
 @mixin logo($name: 'logo', $height: $logo-height, $color: color($theme-color)) {
-  $border: $height * .15;
-  $width: $height * 3.5;
-  $border-radius: $height / 5;
+	$border: $height * 0.15;
+	$width: $height * 3.5;
+	$border-radius: $height / 5;
+	@keyframes #{$name} {
+		0% {
+			width: 0;
+		}
 
-  @keyframes #{$name} {
-    0% {
-      width: 0;
-    }
+		to {
+			width: $width - $border * 4;
+		}
+	}
 
-    to {
-      width: $width - $border * 4;
-    }
-  }
+	.#{$name} {
+		display: inline-block;
+		width: $width;
+		height: $height;
+		border: solid $border color($theme-color);
+		border-radius: $border-radius * 2;
+		position: relative;
+		vertical-align: middle;
 
-  .#{$name} {
-    position: relative;
-    display: inline-block;
-    width: $width;
-    height: $height;
-    vertical-align: middle;
-    border: solid $border color($theme-color);
-    border-radius: $border-radius * 2;
-
-    &::before {
-      position: absolute;
-      top: $border;
-      bottom: $border;
-      left: $border;
-      display: block;
-      width: 60%;
-      content: '';
-      background: $color;
-      border-radius: $border-radius;
-      // animation: $logo-animation-duration linear infinite #{$name};
-    }
-  }
+		&::before {
+			content: '';
+			display: block;
+			width: 60%;
+			border-radius: $border-radius;
+			position: absolute;
+			top: $border;
+			bottom: $border;
+			left: $border;
+			background: $color;
+			// animation: $logo-animation-duration linear infinite #{$name};
+		}
+	}
 }
 
 @include logo('logo');

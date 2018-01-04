@@ -131,3 +131,5 @@ yarn.lock
 package-lock.json
 
 docs/_site
+
+dist
