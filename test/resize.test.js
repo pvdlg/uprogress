@@ -1,4 +1,7 @@
+/* eslint-env jasmine, jquery, browser */
+/* global UProgress, loadFixtures */
 /* eslint-disable no-magic-numbers */
+
 import CustomEvent from 'custom-event';
 import {getVendorCSSProp} from '../src/js/util';
 import {getCSSPosition, getExpectedCSSPosition, getExpectedCSSTransitionDuration} from './helpers/util';

@@ -1,3 +1,6 @@
+/* eslint-env jasmine, jquery, browser */
+/* global UProgress, loadFixtures, loadStyleFixtures, setFixtures, appendSetFixtures */
+
 describe('Set cutom css class', () => {
   it('"uprogress", the progress bar shoud be positionned at the top of parent (document.body)', () => {
     const up = new UProgress();

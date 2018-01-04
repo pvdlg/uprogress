@@ -47,95 +47,87 @@ $valid-position: 'top', 'bottom';
 ///   }
 ///   @keyframes fadein { ... }
 ///   @keyframes rainbow-progress { ... }
-@mixin uprogress(
-  $name: 'uprogress', $height: $uprogress-height, $colors: $uprogress-colors, $position: $uprogress-position) {
-  @if $colors == null or length($colors) == 0 {
-    $colors: $uprogress-colors;
+@mixin uprogress($name: 'uprogress', $height: $uprogress-height, $colors: $uprogress-colors, $position: $uprogress-position) {
+	@if $colors == null or length($colors) == 0 {
+		$colors: $uprogress-colors;
+		@warn '$colors is null or empty, using default $uprogress-colors (#{$uprogress-colors}) .';
+	}
+	@if $height == null {
+		$height: $uprogress-height;
+		@warn '$height is null, using default $uprogress-height (#{$uprogress-height}) .';
+	}
+	@if index($valid-position, $position) == null {
+		$position: $uprogress-position;
+		@warn '$position is not valid, using default $uprogress-position (#{$uprogress-position}) .';
+	}
+	@if length($colors) > 1 {
+		@keyframes #{$name} {
+			0% {
+				background-position: 0 0;
+			}
 
-    @warn '$colors is null or empty, using default $uprogress-colors (#{$uprogress-colors}) .';
-  }
-  @if $height == null {
-    $height: $uprogress-height;
+			100% {
+				background-position: (100% + 100% / length($colors)) 0;
+			}
+		}
+		@keyframes fadein {
+			0% {
+				opacity: 0;
+			}
 
-    @warn '$height is null, using default $uprogress-height (#{$uprogress-height}) .';
-  }
-  @if index($valid-position, $position) == null {
-    $position: $uprogress-position;
+			100% {
+				opacity: 1;
+			}
+		}
+	}
 
-    @warn '$position is not valid, using default $uprogress-position (#{$uprogress-position}) .';
-  }
-  @if length($colors) > 1 {
-    @keyframes #{$name} {
-      0% {
-        background-position: 0 0;
-      }
+	.#{$name} {
+		#{$position}: 0;
+		overflow: hidden;
+		height: $height * 4;
+		right: 0;
+		left: 0;
+		z-index: $uprogress-zindex;
+		@if length($colors) == 1 {
+			.blur {
+				width: $height * 50;
+				height: 100%;
+				position: absolute;
+				right: 1px;
+				box-shadow: 0 0 $height * 4 nth($colors, 1), 0 0 $height * 2 nth($colors, 1);
+				@if $position == 'top' {
+					transform: rotate(3deg) translateY(-$height * 1.5);
+				} @else {
+					transform: rotate(-3deg) translateY($height * 1.5);
+				}
+			}
 
-      100% {
-        background-position: (100% + 100% / length($colors)) 0;
-      }
-    }
-    @keyframes fadein {
-      0% {
-        opacity: 0;
-      }
+			&.rtl .blur {
+				left: 1px;
+				@if $position == 'top' {
+					transform: rotate(-3deg) translateY(-$height * 1.5);
+				} @else {
+					transform: rotate(3deg) translateY($height * 1.5);
+				}
+			}
+		}
 
-      100% {
-        opacity: 1;
-      }
-    }
-  }
-
-  .#{$name} {
-    #{$position}: 0;
-    right: 0;
-    left: 0;
-    z-index: $uprogress-zindex;
-    height: $height * 4;
-    overflow: hidden;
-
-    @if length($colors) == 1 {
-      .blur {
-        position: absolute;
-        right: 1px;
-        width: $height * 50;
-        height: 100%;
-        box-shadow: 0 0 $height * 4 nth($colors, 1), 0 0 $height * 2 nth($colors, 1);
-
-        @if $position == 'top' {
-          transform: rotate(3deg) translateY(-$height * 1.5);
-        } @else {
-          transform: rotate(-3deg) translateY($height * 1.5);
-        }
-      }
-
-      &.rtl .blur {
-        left: 1px;
-
-        @if $position == 'top' {
-          transform: rotate(-3deg) translateY(-$height * 1.5);
-        } @else {
-          transform: rotate(3deg) translateY($height * 1.5);
-        }
-      }
-    }
-
-    .bar {
-      position: absolute;
-      #{$position}: 0;
-      height: $height;
-      pointer-events: none;
-      background-color: nth($colors, 1);
-      will-change: transform;
-
-      @if length($colors) > 1 {
-        $gradient-colors: append($colors, nth($colors, 1));
-        background-image: linear-gradient(to right, $gradient-colors);
-        background-size: length($gradient-colors) * 100%;
-        animation-name: #{$name}, fadein;
-        animation-duration: 2s, .3s;
-        animation-timing-function: linear, ease;
-        animation-iteration-count: infinite, 1;
-      }
-    }
-  }
+		.bar {
+			height: $height;
+			position: absolute;
+			background-color: nth($colors, 1);
+			pointer-events: none;
+			will-change: transform;
+			#{$position}: 0;
+			@if length($colors) > 1 {
+				$gradient-colors: append($colors, nth($colors, 1));
+				background-image: linear-gradient(to right, $gradient-colors);
+				background-size: length($gradient-colors) * 100%;
+				animation-name: #{$name}, fadein;
+				animation-duration: 2s, 0.3s;
+				animation-timing-function: linear, ease;
+				animation-iteration-count: infinite, 1;
+			}
+		}
+	}
 }

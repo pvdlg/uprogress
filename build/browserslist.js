@@ -1,5 +1,7 @@
 #!/usr/bin/env node
 
+/* eslint camelcase: ["error", {properties: "never"}] */
+
 const browserslist = require('browserslist');
 const readPkg = require('read-pkg');
 const sauceLabsConfig = require('./sauce-browsers.config');

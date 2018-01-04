@@ -1,3 +1,5 @@
+/* eslint-env browser */
+
 import Clipboard from 'clipboard';
 import ready from 'dom101/ready';
 import qa from 'dom101/query-selector-all';
