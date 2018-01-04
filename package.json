@@ -210,7 +210,7 @@
     "watch:scss": "chokidar 'src/scss/*.scss' -c 'npm run docs:scss' --initial",
     "watch:unit-test": "karma start build/karma.config.js",
     "prepublishOnly": "npm run build",
-    "gh-pages": "gh-pages -d docs/_site"
+    "gh-pages": "gh-pages -d docs/_site --repo https://$GH_TOKEN@github.com/pvdlg/uprogress.git"
   },
   "style": "dist/uprogress.css",
   "stylelint": {
