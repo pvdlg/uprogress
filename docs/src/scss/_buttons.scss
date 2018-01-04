@@ -3,30 +3,30 @@
 // --------------------------------------------------------
 
 .btn {
-  display: inline-block;
-  padding: $btn-padding-y $btn-padding-x;
-  font-size: $font-size;
-  font-weight: 400;
-  line-height: $btn-line-height;
-  text-align: center;
-  white-space: nowrap;
-  vertical-align: middle;
-  cursor: pointer;
-  user-select: none;
-  border: $border-width solid transparent;
-  border-radius: $border-radius;
+	display: inline-block;
+	padding: $btn-padding-y $btn-padding-x;
+	border: $border-width solid transparent;
+	border-radius: $border-radius;
+	vertical-align: middle;
+	font-size: $font-size;
+	font-weight: normal;
+	text-align: center;
+	line-height: $btn-line-height;
+	white-space: nowrap;
+	cursor: pointer;
+	user-select: none;
 
-  &:hover,
-  &:focus {
-    text-decoration: none;
-    outline: 0;
-  }
+	&:hover,
+	&:focus {
+		outline: 0;
+		text-decoration: none;
+	}
 
-  &.disabled,
-  &:disabled {
-    // cursor: $cursor-disabled;
-    opacity: $btn-disabled-opacity;
-  }
+	&.disabled,
+	&:disabled {
+		// cursor: $cursor-disabled;
+		opacity: $btn-disabled-opacity;
+	}
 }
 
 // // Block button
@@ -51,16 +51,15 @@
 // }
 
 .btn-primary {
-  @include button($theme-color);
+	@include button($theme-color);
 }
 
 .btn-outline-primary {
-  @include button-outline($theme-color);
+	@include button-outline($theme-color);
 }
 
 .btn-secondary {
-  @include button-variant(
-    $body-color, gray('x-light'), darken(gray('x-light'), 6.5%), gray('light'), $border-color, none);
+	@include button-variant($body-color, gray('x-light'), darken(gray('x-light'), 6.5%), gray('light'), $border-color, none);
 }
 
 // .btn-blue {

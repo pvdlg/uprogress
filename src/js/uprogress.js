@@ -1,3 +1,5 @@
+/* eslint-env jasmine, jquery, browser */
+
 import debounce from 'mout/function/debounce';
 import clamp from 'mout/math/clamp';
 import {reflow, transition, style, styles, getVendorCSSProp} from './util';
@@ -565,33 +567,33 @@ class UProgress {
 }
 
 /**
-  * The default options for all new µProgress instances.
-  *
-  * @name Default
-  * @memberof UProgress
-  * @static
-  * @constant
-  * @default
-  * @readonly
-  * @type {Object}
-  * @property {boolean} [rtl=false] `true` to move the µProgress from right to left, `false` for left to right.
-  * @property {number} [start=0.01] The position in percentage (.35 is 35%, 1 is 100%) at which the µProgress starts.
-  * @property {number} [end=0.99] The position in percentage (.35 is 35%, 1 is 100%) the µProgress is moving toward when started. Once reached, it will stop until {@link UProgress#set} or {@link UProgress#done} are called.
-  * @property {number} [duration=2500] The durarion in ms it takes for the µProgress to go from `start` to `end`.
-  * @property {number} [doneDuration=100] The duration in ms that the µProgress take to complete when {@link UProgress#done} is called.
-  * @property {number} [fadeDuration=200] The duration in ms the µProgress takes to fade out after it has completed.
-  * @property {number} [class='uprogress'] The CSS class to set on the the µProgress element.
-  * @property {number} [blurClass='blur'] The CSS class to set on the the µProgress blur element.
-  * @property {number} [barClass='bar'] The CSS class to set on the the µProgress bar element.
-  * @property {number} [resizeDebounce=300] the debounce threshold after which a window `resize` event trigger a call to {@link UProgress#refresh}.
-  *
-  * @example
-  * Change default options
-  * ```javascript
-  * UProgress.Default.duration = 3000;
-  * UProgress.Default.class = 'custom-uprogress';
-  * ```
-  */
+ * The default options for all new µProgress instances.
+ *
+ * @name Default
+ * @memberof UProgress
+ * @static
+ * @constant
+ * @default
+ * @readonly
+ * @type {Object}
+ * @property {boolean} [rtl=false] `true` to move the µProgress from right to left, `false` for left to right.
+ * @property {number} [start=0.01] The position in percentage (.35 is 35%, 1 is 100%) at which the µProgress starts.
+ * @property {number} [end=0.99] The position in percentage (.35 is 35%, 1 is 100%) the µProgress is moving toward when started. Once reached, it will stop until {@link UProgress#set} or {@link UProgress#done} are called.
+ * @property {number} [duration=2500] The durarion in ms it takes for the µProgress to go from `start` to `end`.
+ * @property {number} [doneDuration=100] The duration in ms that the µProgress take to complete when {@link UProgress#done} is called.
+ * @property {number} [fadeDuration=200] The duration in ms the µProgress takes to fade out after it has completed.
+ * @property {number} [class='uprogress'] The CSS class to set on the the µProgress element.
+ * @property {number} [blurClass='blur'] The CSS class to set on the the µProgress blur element.
+ * @property {number} [barClass='bar'] The CSS class to set on the the µProgress bar element.
+ * @property {number} [resizeDebounce=300] the debounce threshold after which a window `resize` event trigger a call to {@link UProgress#refresh}.
+ *
+ * @example
+ * Change default options
+ * ```javascript
+ * UProgress.Default.duration = 3000;
+ * UProgress.Default.class = 'custom-uprogress';
+ * ```
+ */
 Object.defineProperty(UProgressAPI, 'Default', {
   get() {
     return DEFAULT;

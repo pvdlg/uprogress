@@ -1,5 +1,6 @@
+/* eslint-env jasmine, jquery, browser */
 // eslint-disable-next-line import/no-unresolved, import/extensions
-import './*.test.js';
+import './*.test.js'; // eslint-disable-line import/no-unassigned-import
 
 jasmine.getFixtures().fixturesPath = 'base/test/fixtures';
 jasmine.getStyleFixtures().fixturesPath = 'base/test/fixtures';

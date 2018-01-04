@@ -5,29 +5,28 @@
 // }
 
 .anchor-link {
-  // position: absolute;
-  font-family: anchor-icons;
-  color: $link-color;
-  text-decoration: none;
-  opacity: 0;
-  transition: opacity 250ms ease-out, transform 250ms ease-out;
+	opacity: 0;
+	color: $link-color;
+	font-family: anchor-icons; // stylelint-disable-line font-family-no-missing-generic-family-keyword
+	text-decoration: none;
+	transition: opacity 250ms ease-out, transform 250ms ease-out;
 
-  .octicon {
-    vertical-align: middle;
-  }
+	.octicon {
+		vertical-align: middle;
+	}
 
-  // &::after {
-  //   content: '\e9cb';
-  // }
+	// &::after {
+	//   content: '\e9cb';
+	// }
 
-  &:focus {
-    outline: 0;
-  }
+	&:focus {
+		outline: 0;
+	}
 }
 
 .anchor:hover .anchor-link {
-  // color: $link-hover-color;
-  text-decoration: none;
-  opacity: 1;
-  transform: translateX($spacer-sm);
+	transform: translateX($spacer-sm);
+	opacity: 1;
+	// color: $link-hover-color;
+	text-decoration: none;
 }

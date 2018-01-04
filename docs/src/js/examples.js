@@ -1,7 +1,9 @@
+/* eslint-env jasmine, jquery, browser */
+/* global UProgress */
+/* eslint-disable no-magic-numbers, require-jsdoc */
+
 import ready from 'dom101/ready';
 import on from 'dom101/on';
-
-/* eslint-disable no-magic-numbers, require-jsdoc */
 
 function start(idx, uProgresses, startBtns, doneBtns) {
   for (let i = 0, {length} = uProgresses; i < length; i++) {

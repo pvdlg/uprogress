@@ -6,45 +6,44 @@
 // stylelint-disable selector-max-type
 
 table {
-  display: block;
-  width: 100%;
-  max-width: 100%;
-  margin-bottom: $spacer;
-  overflow-x: auto;
-  background-color: $body-bg;
-  border: 0;
-  -ms-overflow-style: -ms-autohiding-scrollbar;
+	display: block;
+	width: 100%;
+	max-width: 100%;
+	border: 0;
+	margin-bottom: $spacer;
+	background-color: $body-bg;
+	overflow-x: auto;
+	-ms-overflow-style: -ms-autohiding-scrollbar;
 
-  th,
-  td {
-    padding: $table-cell-padding;
-    vertical-align: middle;
-    border: $border-width solid $border-color;
-  }
+	th,
+	td {
+		padding: $table-cell-padding;
+		border: $border-width solid $border-color;
+		vertical-align: middle;
+	}
 
-  thead th {
-    vertical-align: bottom;
-    border-bottom: (2 * $border-width) solid $border-color;
-  }
+	thead th {
+		border-bottom: (2 * $border-width) solid $border-color;
+		vertical-align: bottom;
+	}
 
-  tbody {
-    tr {
-      &:hover {
-        background-color: color($theme-color, 'x-light');
-      }
+	tbody {
+		tr {
+			&:hover {
+				background-color: color($theme-color, 'x-light');
+			}
 
-      &:nth-of-type(odd) {
-        background-color: gray('x-light');
+			&:nth-of-type(odd) {
+				background-color: gray('x-light');
 
-        // stylelint-disable-next-line max-nesting-depth
-        &:hover {
-          background-color: color($theme-color, 'x-light');
-        }
-      }
-    }
-  }
-
-  @media screen and (min-width: $mobile-bp) {
-    display: table;
-  }
+				// stylelint-disable-next-line max-nesting-depth
+				&:hover {
+					background-color: color($theme-color, 'x-light');
+				}
+			}
+		}
+	}
+	@media screen and (min-width: $mobile-bp) {
+		display: table;
+	}
 }
