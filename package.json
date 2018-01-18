@@ -71,7 +71,7 @@
     "istanbul": "^0.4.5",
     "jasmine-core": "^2.8.0",
     "jasmine-jquery": "^2.1.1",
-    "jsdoc-to-markdown": "^3.0.0",
+    "jsdoc-to-markdown": "^4.0.0",
     "karma": "^2.0.0",
     "karma-coverage": "^1.1.1",
     "karma-jasmine": "^1.1.0",
