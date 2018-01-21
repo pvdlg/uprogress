@@ -209,16 +209,16 @@ The default options for all new µProgress instances.
 
 | Name | Type | Default | Description |
 | --- | --- | --- | --- |
-| rtl | <code>boolean</code> | <code>false</code> | `true` to move the µProgress from right to left, `false` for left to right. |
-| start | <code>number</code> | <code>0.01</code> | The position in percentage (.35 is 35%, 1 is 100%) at which the µProgress starts. |
-| end | <code>number</code> | <code>0.99</code> | The position in percentage (.35 is 35%, 1 is 100%) the µProgress is moving toward when started. Once reached, it will stop until [set](#UProgress+set) or [done](#UProgress+done) are called. |
-| duration | <code>number</code> | <code>2500</code> | The durarion in ms it takes for the µProgress to go from `start` to `end`. |
-| doneDuration | <code>number</code> | <code>100</code> | The duration in ms that the µProgress take to complete when [done](#UProgress+done) is called. |
-| fadeDuration | <code>number</code> | <code>200</code> | The duration in ms the µProgress takes to fade out after it has completed. |
-| class | <code>number</code> | <code>&#x27;uprogress&#x27;</code> | The CSS class to set on the the µProgress element. |
-| blurClass | <code>number</code> | <code>&#x27;blur&#x27;</code> | The CSS class to set on the the µProgress blur element. |
-| barClass | <code>number</code> | <code>&#x27;bar&#x27;</code> | The CSS class to set on the the µProgress bar element. |
-| resizeDebounce | <code>number</code> | <code>300</code> | the debounce threshold after which a window `resize` event trigger a call to [refresh](#UProgress+refresh). |
+| [rtl] | <code>boolean</code> | <code>false</code> | `true` to move the µProgress from right to left, `false` for left to right. |
+| [start] | <code>number</code> | <code>0.01</code> | The position in percentage (.35 is 35%, 1 is 100%) at which the µProgress starts. |
+| [end] | <code>number</code> | <code>0.99</code> | The position in percentage (.35 is 35%, 1 is 100%) the µProgress is moving toward when started. Once reached, it will stop until [set](#UProgress+set) or [done](#UProgress+done) are called. |
+| [duration] | <code>number</code> | <code>2500</code> | The durarion in ms it takes for the µProgress to go from `start` to `end`. |
+| [doneDuration] | <code>number</code> | <code>100</code> | The duration in ms that the µProgress take to complete when [done](#UProgress+done) is called. |
+| [fadeDuration] | <code>number</code> | <code>200</code> | The duration in ms the µProgress takes to fade out after it has completed. |
+| [class] | <code>number</code> | <code>&#x27;uprogress&#x27;</code> | The CSS class to set on the the µProgress element. |
+| [blurClass] | <code>number</code> | <code>&#x27;blur&#x27;</code> | The CSS class to set on the the µProgress blur element. |
+| [barClass] | <code>number</code> | <code>&#x27;bar&#x27;</code> | The CSS class to set on the the µProgress bar element. |
+| [resizeDebounce] | <code>number</code> | <code>300</code> | the debounce threshold after which a window `resize` event trigger a call to [refresh](#UProgress+refresh). |
 
 **Example**  
 Change default options
