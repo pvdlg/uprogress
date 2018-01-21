@@ -97,12 +97,14 @@ class UProgress {
    * const uProgress = new UProgress();
    * uProgress.start();
    * ```
+   *
    * @example
    * Create a new µProgress on top of a modal with default options.
    * ```javascript
    * const uProgress = new UProgress(document.getElementById('my-modal'));
    * uProgress.start();
    * ```
+   *
    * @example
    * Create a new µProgress on top of the viewport with custom options.
    * ```javascript
