@@ -49,7 +49,7 @@ module.exports = config => {
     sassPreprocessor: {options: {sourceMap: true}},
     postcssPreprocessor: {options: {map: true, plugins: [autoprefixer, cssnano]}},
     // Test results reporter to use
-    reporters: ['coverage', 'kjhtml', 'spec'],
+    reporters: ['coverage', 'spec'],
     coverageReporter: {
       dir: 'coverage/',
       reporters: [{type: 'html', subdir: 'report-html'}, {type: 'json', subdir: '.'}],
