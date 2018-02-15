@@ -13,20 +13,20 @@ const globImport = require('rollup-plugin-glob-import');
 const {MIN = false, TEST = false} = process.env;
 
 module.exports = {
-  external: ['window', 'document'],
-  output: {
-    globals: {window: 'window', document: 'document'},
-    format: 'umd',
-  },
-  plugins: [
-    conditional(TEST, [globImport(), istanbul({include: [`src/js/${pkg.name}.js`]})]),
-    nodeResolve(),
-    commonjs({include: ['node_modules/**/*']}),
-    inject({window: 'window', document: 'document'}),
-    babel({
-      presets: [['env', {modules: false, loose: true}]],
-      plugins: ['transform-object-assign', 'external-helpers'],
-    }),
-    conditional(MIN, [uglify({mangle: {properties: {regex: /^_/}}, output: {comments: /^!/}})]),
-  ],
+	external: ['window', 'document'],
+	output: {
+		globals: {window: 'window', document: 'document'},
+		format: 'umd',
+	},
+	plugins: [
+		conditional(TEST, [globImport(), istanbul({include: [`src/js/${pkg.name}.js`]})]),
+		nodeResolve(),
+		commonjs({include: ['node_modules/**/*']}),
+		inject({window: 'window', document: 'document'}),
+		babel({
+			presets: [['env', {modules: false, loose: true}]],
+			plugins: ['transform-object-assign', 'external-helpers'],
+		}),
+		conditional(MIN, [uglify({mangle: {properties: {regex: /^_/}}, output: {comments: /^!/}})]),
+	],
 };
