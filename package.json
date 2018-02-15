@@ -64,8 +64,6 @@
     "cssnano": "next",
     "custom-event": "^1.0.1",
     "dom101": "^2.2.1",
-    "eslint-config-prettier": "^2.6.0",
-    "eslint-plugin-prettier": "^2.3.1",
     "gh-pages": "^1.0.0",
     "htmllint-cli": "0.0.6",
     "istanbul": "^0.4.5",
@@ -88,7 +86,6 @@
     "phantomjs-prebuilt": "^2.1.15",
     "postcss": "^6.0.13",
     "postcss-cli": "^5.0.0",
-    "prettier": "^1.7.4",
     "primer-tooltips": "^1.4.0",
     "read-pkg": "^3.0.0",
     "rimraf": "^2.6.2",
@@ -124,10 +121,7 @@
   "main": "dist/uprogress.js",
   "module": "src/js/uprogress.js",
   "prettier": {
-    "printWidth": 120,
-    "singleQuote": true,
-    "bracketSpacing": false,
-    "trailingComma": "es5"
+    "printWidth": 120
   },
   "publishConfig": {
     "access": "public"
@@ -228,8 +222,6 @@
     ]
   },
   "xo": {
-    "extends": [
-      "plugin:prettier/recommended"
-    ]
+    "prettier": true
   }
 }
