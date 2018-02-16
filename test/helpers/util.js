@@ -10,7 +10,7 @@ const TRANSITIONX_REGEX = /\.*translateX\((.*)px\)/i;
  * @return {string} The pixel value of the translateX function in transform property.
  */
 export function getCSSPosition($uProgress) {
-  return TRANSITIONX_REGEX.exec($uProgress[0].style[getVendorCSSProp('transform')])[1];
+	return TRANSITIONX_REGEX.exec($uProgress[0].style[getVendorCSSProp('transform')])[1];
 }
 
 /**
@@ -22,7 +22,7 @@ export function getCSSPosition($uProgress) {
  * @return {number} the expected value in pixels of the translateX function in transform property for the given target.
  */
 export function getExpectedCSSPosition($uProgress, target, rtl) {
-  return $uProgress.width() * (1 - target) * (rtl ? 1 : -1);
+	return $uProgress.width() * (1 - target) * (rtl ? 1 : -1);
 }
 
 /**
@@ -32,5 +32,5 @@ export function getExpectedCSSPosition($uProgress, target, rtl) {
  * @return {string} the duration expected to be used in the transition css property
  */
 export function getExpectedCSSTransitionDuration(duration) {
-  return `${convert(duration, 'ms', 's')}s`;
+	return `${convert(duration, 'ms', 's')}s`;
 }

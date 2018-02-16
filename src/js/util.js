@@ -7,10 +7,10 @@
  */
 const CSS_PREFIXES = ['Webkit', 'O', 'Moz', 'ms'];
 const PREFIXED_EVENT_NAMES = {
-  transition: 'transitionend',
-  MozTransition: 'mozTransitionEnd',
-  OTransition: 'oTransitionEnd',
-  WebkitTransition: 'webkitTransitionEnd',
+	transition: 'transitionend',
+	MozTransition: 'mozTransitionEnd',
+	OTransition: 'oTransitionEnd',
+	WebkitTransition: 'webkitTransitionEnd',
 };
 const PREFIXED_PROP_CACHE = {};
 
@@ -29,8 +29,8 @@ export const TRANSITION_END_EVENT = PREFIXED_EVENT_NAMES[getVendorProp('transiti
  * @param {HTMLElement} element the element to reflow
  */
 export function reflow(element) {
-  // eslint-disable-next-line no-unused-expressions
-  element.offsetHeight;
+	// eslint-disable-next-line no-unused-expressions
+	element.offsetHeight;
 }
 
 /**
@@ -42,7 +42,7 @@ export function reflow(element) {
  * @param {string|number} value the value to set.
  */
 export function style(element, prop, value) {
-  element.style[getVendorProp(prop)] = value;
+	element.style[getVendorProp(prop)] = value;
 }
 
 /**
@@ -53,9 +53,9 @@ export function style(element, prop, value) {
  * @param {Object<string, Any>} props a hash of CSS properties and values to set.
  */
 export function styles(element, props) {
-  for (let i = 0, keys = Object.keys(props), {length} = keys; i < length; i++) {
-    style(element, keys[i], props[keys[i]]);
-  }
+	for (let i = 0, keys = Object.keys(props), {length} = keys; i < length; i++) {
+		style(element, keys[i], props[keys[i]]);
+	}
 }
 
 /**
@@ -66,22 +66,22 @@ export function styles(element, props) {
  * @return {string} the attribute supported by the browser
  */
 function getVendorProp(name) {
-  if (PREFIXED_PROP_CACHE[name]) {
-    return PREFIXED_PROP_CACHE[name];
-  }
+	if (PREFIXED_PROP_CACHE[name]) {
+		return PREFIXED_PROP_CACHE[name];
+	}
 
-  if (!(name in document.body.style)) {
-    for (let i = 0, {length} = CSS_PREFIXES; i < length; i++) {
-      const vendorName = `${CSS_PREFIXES[i]}${name.charAt(0).toUpperCase()}${name.slice(1)}`;
+	if (!(name in document.body.style)) {
+		for (let i = 0, {length} = CSS_PREFIXES; i < length; i++) {
+			const vendorName = `${CSS_PREFIXES[i]}${name.charAt(0).toUpperCase()}${name.slice(1)}`;
 
-      if (vendorName in document.body.style) {
-        PREFIXED_PROP_CACHE[name] = vendorName;
-        return vendorName;
-      }
-    }
-  }
-  PREFIXED_PROP_CACHE[name] = name;
-  return name;
+			if (vendorName in document.body.style) {
+				PREFIXED_PROP_CACHE[name] = vendorName;
+				return vendorName;
+			}
+		}
+	}
+	PREFIXED_PROP_CACHE[name] = name;
+	return name;
 }
 
 /**
@@ -92,9 +92,9 @@ function getVendorProp(name) {
  * @return {String} the attribute supported by the browser
  */
 export function getVendorCSSProp(name) {
-  return getVendorProp(name)
-    .replace(/([A-Z])/g, (str, m1) => `-${m1.toLowerCase()}`)
-    .replace(/^ms-/, '-ms-');
+	return getVendorProp(name)
+		.replace(/([A-Z])/g, (str, m1) => `-${m1.toLowerCase()}`)
+		.replace(/^ms-/, '-ms-');
 }
 
 /**
@@ -109,19 +109,19 @@ export function getVendorCSSProp(name) {
  * @param {string} property the property that transition; end function will be called only at the end of the transition on that property
  */
 export function transition(element, start, end, immediate, property) {
-  if (end) {
-    if (immediate) {
-      setTimeout(end);
-    } else {
-      const handler = event => {
-        if (!property || event.propertyName === getVendorCSSProp(property)) {
-          end(event);
-          element.removeEventListener(TRANSITION_END_EVENT, handler);
-        }
-      };
+	if (end) {
+		if (immediate) {
+			setTimeout(end);
+		} else {
+			const handler = event => {
+				if (!property || event.propertyName === getVendorCSSProp(property)) {
+					end(event);
+					element.removeEventListener(TRANSITION_END_EVENT, handler);
+				}
+			};
 
-      element.addEventListener(TRANSITION_END_EVENT, handler);
-    }
-  }
-  start();
+			element.addEventListener(TRANSITION_END_EVENT, handler);
+		}
+	}
+	start();
 }

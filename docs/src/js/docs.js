@@ -8,67 +8,67 @@ import './examples'; // eslint-disable-line import/no-unassigned-import
 
 const browserPrefix = ['', '-o-', '-webkit-', '-moz-', '-ms-'];
 const uProgressClases = [
-  'uprogress',
-  'uprogress-bottom-orange',
-  'uprogress-multi',
-  'uprogress-purple',
-  'uprogress-red',
-  'uprogress-green',
+	'uprogress',
+	'uprogress-bottom-orange',
+	'uprogress-multi',
+	'uprogress-purple',
+	'uprogress-red',
+	'uprogress-green',
 ];
 
 ready(() => {
-  const sidebar = document.getElementById('sidebar');
+	const sidebar = document.getElementById('sidebar');
 
-  if (sidebar) {
-    for (let i = 0; i < browserPrefix.length; i += 1) {
-      sidebar.style.position = `${browserPrefix[i]}sticky`;
-    }
+	if (sidebar) {
+		for (let i = 0; i < browserPrefix.length; i += 1) {
+			sidebar.style.position = `${browserPrefix[i]}sticky`;
+		}
 
-    if (sidebar.style.position !== '') {
-      sidebar.classList.add('is-sticky');
-    }
-  }
+		if (sidebar.style.position !== '') {
+			sidebar.classList.add('is-sticky');
+		}
+	}
 });
 
 ready(() => {
-  const indexStartBtn = document.getElementById('index-start');
-  const indexDoneBtn = document.getElementById('index-done');
-  const indexChangeColorBtn = document.getElementById('index-change-color');
-  let currentClass = 0;
+	const indexStartBtn = document.getElementById('index-start');
+	const indexDoneBtn = document.getElementById('index-done');
+	const indexChangeColorBtn = document.getElementById('index-change-color');
+	let currentClass = 0;
 
-  if (indexStartBtn && indexDoneBtn) {
-    let uProgress;
+	if (indexStartBtn && indexDoneBtn) {
+		let uProgress;
 
-    indexDoneBtn.disabled = true;
-    indexChangeColorBtn.disabled = true;
+		indexDoneBtn.disabled = true;
+		indexChangeColorBtn.disabled = true;
 
-    on(indexStartBtn, 'click', () => {
-      if (!uProgress) {
-        uProgress = new UProgress();
-      }
+		on(indexStartBtn, 'click', () => {
+			if (!uProgress) {
+				uProgress = new UProgress();
+			}
 
-      indexStartBtn.disabled = true;
-      indexDoneBtn.disabled = false;
-      indexChangeColorBtn.disabled = false;
-      uProgress.start();
-    });
+			indexStartBtn.disabled = true;
+			indexDoneBtn.disabled = false;
+			indexChangeColorBtn.disabled = false;
+			uProgress.start();
+		});
 
-    on(indexChangeColorBtn, 'click', () => {
-      if (uProgress) {
-        currentClass += 1;
-        currentClass = currentClass >= uProgressClases.length ? currentClass - uProgressClases.length : currentClass;
-        console.log(currentClass);
-        uProgress.options({class: uProgressClases[currentClass]});
-      }
-    });
+		on(indexChangeColorBtn, 'click', () => {
+			if (uProgress) {
+				currentClass += 1;
+				currentClass = currentClass >= uProgressClases.length ? currentClass - uProgressClases.length : currentClass;
+				console.log(currentClass);
+				uProgress.options({class: uProgressClases[currentClass]});
+			}
+		});
 
-    on(indexDoneBtn, 'click', () => {
-      if (uProgress) {
-        indexStartBtn.disabled = false;
-        indexDoneBtn.disabled = true;
-        indexChangeColorBtn.disabled = true;
-        uProgress.done();
-      }
-    });
-  }
+		on(indexDoneBtn, 'click', () => {
+			if (uProgress) {
+				indexStartBtn.disabled = false;
+				indexDoneBtn.disabled = true;
+				indexChangeColorBtn.disabled = true;
+				uProgress.done();
+			}
+		});
+	}
 });
