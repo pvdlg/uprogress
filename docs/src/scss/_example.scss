@@ -29,7 +29,7 @@
 
 .example ~ .highlight {
 	border: 1px solid $border-color;
-	border-top: 0;
+	border-top: none;
 	border-radius: 0 0 3px 3px;
 	margin-bottom: 1rem;
 	position: relative;
@@ -37,7 +37,7 @@
 	.copy {
 		display: block;
 		padding: 0.25rem 0.5rem;
-		border: 0;
+		border: none;
 		border-radius: 0.25rem;
 		position: absolute;
 		top: 0.25rem;
@@ -62,8 +62,8 @@
 
 .example-block {
 	.highlight:not(:last-child) {
-		border-bottom-left-radius: 0;
-		border-bottom-right-radius: 0;
+		border-bottom-left-radius: none;
+		border-bottom-right-radius: none;
 	}
 }
 

@@ -281,7 +281,7 @@ fieldset {
 	min-width: 0;
 	// Reset the default outline behavior of fieldsets so they don't affect page layout.
 	padding: 0;
-	border: 0;
+	border: none;
 	margin: 0;
 }
 
@@ -313,5 +313,5 @@ output {
 }
 
 iframe {
-	border: 0;
+	border: none;
 }
