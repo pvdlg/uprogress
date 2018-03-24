@@ -55,7 +55,7 @@
     "babel-preset-env": "^1.6.0",
     "browser-sync": "^2.18.13",
     "browserslist": "^3.0.0",
-    "bundlesize": "^0.16.0",
+    "bundlesize": "^0.17.0",
     "chokidar-cli": "^1.2.0",
     "clipboard": "^2.0.0",
     "codecov": "^3.0.0",
