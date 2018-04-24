@@ -14,5 +14,6 @@
     "marginheight",
     "scrolling",
     "style"
-  ]
+  ],
+  "attr-validate": false
 }
