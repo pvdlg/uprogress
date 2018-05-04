@@ -137,7 +137,7 @@ class UProgress {
 						document.body.scrollWidth,
 						document.documentElement.clientWidth,
 						document.documentElement.offsetWidth
-					)
+				  )
 				: this._parent.clientWidth;
 		this._key = keyCounter;
 		this._started = false;
@@ -366,7 +366,7 @@ class UProgress {
 						document.body.scrollWidth,
 						document.documentElement.clientWidth,
 						document.documentElement.offsetWidth
-					)
+				  )
 				: this._parent.clientWidth;
 
 		if (parentWidth !== this._width) {
@@ -596,6 +596,7 @@ class UProgress {
  * UProgress.Default.class = 'custom-uprogress';
  * ```
  */
+/* eslint-disable-next-line prefer-reflect */
 Object.defineProperty(UProgressAPI, 'Default', {
 	get() {
 		return DEFAULT;
