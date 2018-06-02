@@ -103,7 +103,7 @@ describe('Getting the status of the progressbar', () => {
 
 		expect(status.duration).toBe(duration - duration1);
 		expect(status.progress).toBeCloseTo(
-			UProgress.Default.start + (target - UProgress.Default.start) * duration1 / duration
+			UProgress.Default.start + ((target - UProgress.Default.start) * duration1) / duration
 		);
 		expect(status.target).toBe(target);
 		jasmine.clock().tick(duration - duration1);
@@ -159,7 +159,7 @@ describe('Getting the status of the progressbar', () => {
 		expect(status.duration).toBeCloseTo(options.doneDuration - progressDuration);
 		expect(status.progress).toBeCloseTo(
 			UProgress.Default.start +
-				(UProgress.Default.end - UProgress.Default.start) * progressDuration / options.doneDuration
+				((UProgress.Default.end - UProgress.Default.start) * progressDuration) / options.doneDuration
 		);
 
 		// Test that the progress bar is moving toward the end position in doneDuration ms
