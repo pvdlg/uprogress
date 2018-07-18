@@ -84,7 +84,7 @@
     "npm-scripts-info": "^0.3.6",
     "octicons": "^8.0.0",
     "postcss": "^7.0.0",
-    "postcss-cli": "^5.0.0",
+    "postcss-cli": "^6.0.0",
     "primer-tooltips": "^1.4.0",
     "puppeteer": "^1.2.0",
     "read-pkg": "^4.0.0",
