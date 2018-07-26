@@ -101,7 +101,7 @@
     "sassdoc": "^2.3.0",
     "semantic-release": "^15.0.0",
     "stylelint": "^9.0.0",
-    "stylelint-config-xo": "^0.8.0",
+    "stylelint-config-xo": "^0.10.0",
     "xo": "^0.21.0"
   },
   "files": [
