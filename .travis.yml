@@ -1,10 +1,15 @@
 language: node_js
+
 node_js: node
 
 branches:
   only:
     - master
     - /^greenkeeper.*$/
+
+cache:
+  directories:
+    - ~/.npm
 
 before_install:
   - cd docs && bundle install && cd ..
