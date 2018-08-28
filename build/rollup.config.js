@@ -23,8 +23,8 @@ module.exports = {
 		commonjs({include: ['node_modules/**/*']}),
 		inject({window: 'window', document: 'document'}),
 		babel({
-			presets: [['env', {modules: false, loose: true}]],
-			plugins: ['transform-object-assign', 'external-helpers'],
+			presets: [['@babel/preset-env', {modules: false, loose: true}]],
+			plugins: ['@babel/transform-object-assign'],
 		}),
 		MIN ? uglify({mangle: {properties: {regex: /^_/}}, output: {comments: /^!/}}) : undefined,
 	].filter(Boolean),
