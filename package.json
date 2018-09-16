@@ -63,7 +63,7 @@
     "cssnano": "next",
     "custom-event": "^1.0.1",
     "dom101": "^2.2.1",
-    "gh-pages": "^1.0.0",
+    "gh-pages": "^2.0.0",
     "htmllint-cli": "0.0.7",
     "istanbul": "^0.4.5",
     "jasmine-core": "^3.0.0",
