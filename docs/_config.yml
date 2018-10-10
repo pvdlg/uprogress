@@ -29,7 +29,7 @@ exclude:
 # Meta
 title: μProgress
 title_prefix: μProgress -
-version: v1.0.1
+version: v1.0.4
 description: Slim, lightweight and performant progress bar
 repository: pvdlg/uprogress
 lang: en_US

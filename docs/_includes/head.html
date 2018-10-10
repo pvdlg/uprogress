@@ -5,8 +5,8 @@
   <title>{% if page.title %}{{ site.title }} - {{ page.title }}{% else %}{{ site.title }}{% endif %}</title>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
   {% if jekyll.environment == "development" %}
-    <link rel="stylesheet" href="/assets/css/uprogress.css">
-    <link rel="stylesheet" href="/assets/css/docs.css">
+    <link rel="stylesheet" href="{{ site.baseurl }}/assets/css/uprogress.css">
+    <link rel="stylesheet" href="{{ site.baseurl }}/assets/css/docs.css">
   {% else %}
     <link rel="stylesheet" href="{{ site.baseurl }}/assets/css/docs.min.css">
   {% endif %}
