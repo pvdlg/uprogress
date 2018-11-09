@@ -41,14 +41,16 @@ readPkg().then(pkg => {
 			}
 			return acc;
 		}, {});
-	const browsers = supportedBrowsers.map(browser => browser.split(' ')).reduce((acc, val) => {
-		if (val[0] in acc) {
-			acc[val[0]].unshift(val[1]);
-		} else {
-			acc[val[0]] = [val[1]];
-		}
-		return acc;
-	}, {});
+	const browsers = supportedBrowsers
+		.map(browser => browser.split(' '))
+		.reduce((acc, val) => {
+			if (val[0] in acc) {
+				acc[val[0]].unshift(val[1]);
+			} else {
+				acc[val[0]] = [val[1]];
+			}
+			return acc;
+		}, {});
 	const result = {coverage: browserslist.coverage(supportedBrowsers), browsers: {}};
 
 	for (let i = 0, keys = Object.keys(BROWSERS_LABELS), {length} = keys; i < length; i++) {
