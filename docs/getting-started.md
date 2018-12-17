@@ -47,5 +47,5 @@ Total users coverage: **{{ site.data.browsers.coverage | round: 2}} %**
 
 | Library | Version | Module |
 | ------- | ------- | ------ |
-| [Mout](http://moutjs.com){:target="_blank"} | v1.1.0 |  [`function/debounce`](http://moutjs.com/docs/latest/function.html#debounce){:target="_blank" .highlighter} |
-| [Mout](http://moutjs.com){:target="_blank"} | v1.1.0 |  [`math/clamp`](http://moutjs.com/docs/latest/math.html#clamp){:target="_blank" .highlighter} |
+| [Mout](http://moutjs.com){:rel="noopener" target="_blank"} | v1.1.0 |  [`function/debounce`](http://moutjs.com/docs/latest/function.html#debounce){:rel="noopener" target="_blank" .highlighter} |
+| [Mout](http://moutjs.com){:rel="noopener" target="_blank"} | v1.1.0 |  [`math/clamp`](http://moutjs.com/docs/latest/math.html#clamp){:rel="noopener" target="_blank" .highlighter} |
