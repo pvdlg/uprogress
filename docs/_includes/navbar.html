@@ -5,7 +5,7 @@
       <span class="logo-text">{{site.title}}</span>
     </a>
     <div class="navbar-nav">
-      <a class="nav-icon" href="{{site.github.repository_url}}" target="_blank">
+      <a class="nav-icon" href="{{site.github.repository_url}}" rel="noopener" target="_blank">
         {% octicon mark-github height:18 %}
       </a>
     </div>
@@ -13,11 +13,11 @@
       <div class="nav-item {% if page.layout == 'doc' %}active{% endif %}">
         <a class="nav-link" href="{{ site.baseurl }}/getting-started">Documentation</a>
       </div>
-      <a class="btn btn-outline-primary" href="{{site.github.repository_url}}" target="_blank">
+      <a class="btn btn-outline-primary" href="{{site.github.repository_url}}" rel="noopener" target="_blank">
         {% octicon mark-github height:18 %}
         <span>Github</span>
       </a>
-      <a class="btn btn-primary" href="{{site.github.repository_url}}/archive/{{site.version}}.zip" target="_blank">
+      <a class="btn btn-primary" href="{{site.github.repository_url}}/archive/{{site.version}}.zip" rel="noopener" target="_blank">
         {% octicon desktop-download height:18 %}
         <span>Download</span>
       </a>
