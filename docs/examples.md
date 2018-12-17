@@ -20,11 +20,11 @@ heading: true
 </div>
 {% highlight javascript %}
   const uProgress = new UProgress();
-  
+
   document.getElementById('expl1-start').addEventListener('click', () => {
     uProgress.start();
   });
-  
+
   document.getElementById('expl1-done').addEventListener('click', () => {
     uProgress.done();
   });
@@ -61,7 +61,7 @@ heading: true
 </div>
 {% highlight scss %}
   @import 'uprogress/mixin';
-  
+
   @include uprogress('uprogress-purple', 2px, #713ed0);
   @include uprogress('uprogress-lg', 8px);
   @include uprogress($name: 'uprogress-bottom', $position: 'bottom');
@@ -69,11 +69,11 @@ heading: true
 {% endhighlight %}
 {% highlight javascript %}
   const uProgress = new UProgress({class : 'purple-progress'});
-  
+
   document.getElementById('expl2-start').addEventListener('click', () => {
     uProgress.start({class: 'uprogress-purple'});
   });
-  
+
   document.getElementById('expl2-purple').addEventListener('click', () => {
     uProgress.options({class: 'uprogress-purple'});
   });
@@ -86,7 +86,7 @@ heading: true
   document.getElementById('expl2-multi').addEventListener('click', () => {
     uProgress.options({class: 'uprogress-multi'});
   });
-  
+
   document.getElementById('expl2-done').addEventListener('click', () => {
     uProgress.done();
   });
@@ -106,11 +106,11 @@ heading: true
 </div>
 {% highlight javascript %}
   const uProgress = new UProgress({rtl: true});
-  
+
   document.getElementById('expl1-start').addEventListener('click', () => {
     uProgress.start();
   });
-  
+
   document.getElementById('expl1-done').addEventListener('click', () => {
     uProgress.done();
   });
@@ -120,7 +120,7 @@ heading: true
 
 <div class="example">
   <div id="container-expl" class="modal">
-  
+
   <button id="expl4-start" class="btn btn-primary">
     {% octicon rocket height:18 %}
     <span>Start</span>
@@ -133,11 +133,11 @@ heading: true
 </div>
 {% highlight javascript %}
   const uProgress = new UProgress(document.getElementById('container-expl'));
-  
+
   document.getElementById('expl4-start').addEventListener('click', () => {
     uProgress.start();
   });
-  
+
   document.getElementById('expl4-done').addEventListener('click', () => {
     uProgress.done();
   });

@@ -18,7 +18,7 @@ layout: base
       <span>Get started</span>
     </a>
   {% endif %}  
-    <a class="btn btn-outline-primary" href="{{site.github.repository_url}}" target="_blank">
+    <a class="btn btn-outline-primary" href="{{site.github.repository_url}}" rel="noopener" target="_blank">
       <span>Github</span>
     </a>
   </div>
