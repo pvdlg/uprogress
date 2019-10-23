@@ -44,7 +44,7 @@
   "devDependencies": {
     "@metahub/karma-jasmine-jquery": "^2.0.0",
     "@metahub/karma-postcss-preprocessor": "^2.0.0",
-    "@metahub/karma-rollup-preprocessor": "^4.0.0",
+    "@metahub/karma-rollup-preprocessor": "^5.0.1",
     "@metahub/karma-sass-preprocessor": "^2.0.0",
     "@semantic-release/exec": "^3.0.1",
     "a11y": "^0.5.0",
