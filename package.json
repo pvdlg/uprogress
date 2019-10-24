@@ -75,7 +75,7 @@
     "karma-jasmine": "^2.0.0",
     "karma-sauce-launcher": "^1.2.0",
     "karma-spec-reporter": "0.0.32",
-    "ncat": "^2.0.1",
+    "ncat": "^3.0.0",
     "node-sass": "^4.5.3",
     "node-sass-import": "^2.0.0",
     "normalize.css": "^8.0.0",
