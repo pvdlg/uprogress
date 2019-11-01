@@ -39,6 +39,7 @@ readPkg().then(pkg => {
 			} else {
 				acc[val.browserName] = [version];
 			}
+
 			return acc;
 		}, {});
 	const browsers = supportedBrowsers
@@ -49,6 +50,7 @@ readPkg().then(pkg => {
 			} else {
 				acc[val[0]] = [val[1]];
 			}
+
 			return acc;
 		}, {});
 	const result = {coverage: browserslist.coverage(supportedBrowsers), browsers: {}};

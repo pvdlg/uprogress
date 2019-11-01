@@ -20,8 +20,8 @@ ready(() => {
 	const sidebar = document.getElementById('sidebar');
 
 	if (sidebar) {
-		for (let i = 0; i < browserPrefix.length; i += 1) {
-			sidebar.style.position = `${browserPrefix[i]}sticky`;
+		for (const element of browserPrefix) {
+			sidebar.style.position = `${element}sticky`;
 		}
 
 		if (sidebar.style.position !== '') {

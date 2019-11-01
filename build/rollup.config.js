@@ -6,7 +6,7 @@ const babel = require('rollup-plugin-babel');
 const commonjs = require('rollup-plugin-commonjs');
 const inject = require('rollup-plugin-inject');
 const {uglify} = require('rollup-plugin-uglify');
-const istanbul = require('rollup-plugin-istanbul'); // eslint-disable-line import/no-unresolved
+const istanbul = require('rollup-plugin-istanbul');
 const globImport = require('rollup-plugin-glob-import');
 
 const {MIN = false, TEST = false} = process.env;

@@ -115,6 +115,7 @@ class UProgress {
 	 * uProgress.start();
 	 * ```
 	 */
+	// eslint-disable-next-line default-param-last
 	constructor(parent = document.body, opts) {
 		this._wrapper = document.createElement('div');
 		this._progressbar = document.createElement('div');
@@ -126,6 +127,7 @@ class UProgress {
 			this._options(opts, DEFAULT);
 			this._parent = parent;
 		}
+
 		this._progressbar.className = this._opts.barClass;
 		this._progressbar.setAttribute('role', 'bar');
 		this._wrapper.appendChild(this._progressbar);
@@ -160,6 +162,7 @@ class UProgress {
 		if (Object.keys(allUProgress).length === 0) {
 			window.addEventListener('resize', _onResize);
 		}
+
 		allUProgress[this._key] = this;
 		keyCounter += 1;
 	}
@@ -202,6 +205,7 @@ class UProgress {
 			this._started = true;
 			return this._set(this._opts.duration, this._opts.end);
 		}
+
 		return false;
 	}
 
@@ -242,10 +246,12 @@ class UProgress {
 			if (target !== null && target >= 1) {
 				return this._done(false, duration, this._opts.fadeDuration);
 			}
+
 			if (target === null || force || this._status().progress < target) {
 				return this._set(duration, target === null ? this._to : Math.max(target, this._opts.start), force);
 			}
 		}
+
 		return false;
 	}
 
@@ -403,11 +409,13 @@ class UProgress {
 			if (this._wrapper.parentNode === this._parent) {
 				this._parent.removeChild(this._wrapper);
 			}
+
 			delete allUProgress[this._key];
 			if (Object.keys(allUProgress).length === 0) {
 				window.removeEventListener('resize', _onResize);
 				_onResize.cancel();
 			}
+
 			this._started = false;
 			this._destroyed = true;
 		}
@@ -438,9 +446,11 @@ class UProgress {
 		if (opts && opts.class) {
 			this._wrapper.className = `${this._opts.class}`;
 		}
+
 		if (opts && opts.blurClass) {
 			this._blur.className = this._opts.blurClass;
 		}
+
 		if (opts && opts.barClass) {
 			this._progressbar.className = this._opts.barClass;
 		}
@@ -464,6 +474,7 @@ class UProgress {
 				style(this._progressbar, 'transform', `translateX(${this._progressbar.getBoundingClientRect().left}px)`);
 				reflow(this._progressbar);
 			}
+
 			this._duration = Math.max(duration, 0);
 			this._to = target;
 			this._end = Date.now() + this._duration;
@@ -475,6 +486,7 @@ class UProgress {
 			reflow(this._progressbar);
 			return true;
 		}
+
 		return false;
 	}
 
@@ -491,6 +503,7 @@ class UProgress {
 		if (!this._started) {
 			return {target: this._opts.end};
 		}
+
 		const duration = Math.max(0, this._end - Date.now());
 
 		return {
@@ -538,6 +551,7 @@ class UProgress {
 								style(this._progressbar, 'visibility', 'hidden');
 								this._to = null;
 							}
+
 							this._completing = false;
 						},
 						fadeDuration <= 0,
@@ -552,6 +566,7 @@ class UProgress {
 		} else {
 			return false;
 		}
+
 		return true;
 	}
 
@@ -596,7 +611,6 @@ class UProgress {
  * UProgress.Default.class = 'custom-uprogress';
  * ```
  */
-/* eslint-disable-next-line prefer-reflect */
 Object.defineProperty(UProgressAPI, 'Default', {
 	get() {
 		return DEFAULT;
@@ -622,9 +636,11 @@ export default function UProgressAPI(...args) {
 	) {
 		self[PUBLIC_METHODS[i]] = uProgress[PUBLIC_METHODS[i]].bind(uProgress);
 	}
+
 	self.options = (...chainableArgs) => {
 		uProgress.options(...chainableArgs);
 		return self;
 	};
+
 	return Object.freeze(self);
 }
