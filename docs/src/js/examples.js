@@ -1,6 +1,5 @@
 /* eslint-env jasmine, jquery, browser */
 /* global UProgress */
-/* eslint-disable no-magic-numbers, require-jsdoc */
 
 import ready from 'dom101/ready';
 import on from 'dom101/on';
@@ -108,5 +107,3 @@ ready(() => {
 		});
 	}
 });
-
-/* eslint-enable no-magic-numbers, require-jsdoc */

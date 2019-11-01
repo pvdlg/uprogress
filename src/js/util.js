@@ -80,6 +80,7 @@ function getVendorProp(name) {
 			}
 		}
 	}
+
 	PREFIXED_PROP_CACHE[name] = name;
 	return name;
 }
@@ -123,5 +124,6 @@ export function transition(element, start, end, immediate, property) {
 			element.addEventListener(TRANSITION_END_EVENT, handler);
 		}
 	}
+
 	start();
 }

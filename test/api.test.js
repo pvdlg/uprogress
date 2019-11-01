@@ -1,8 +1,6 @@
 /* eslint-env jasmine, jquery, browser */
 /* global UProgress */
 
-/* eslint-disable prefer-reflect */
-
 describe('API', () => {
 	let up;
 

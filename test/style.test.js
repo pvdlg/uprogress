@@ -85,10 +85,8 @@ describe('Set cutom css class', () => {
 		const $uProgressBar = $('body > div.uprogress-large > .bar');
 		const $uProgressBlur = $('body > div.uprogress-large > .bar > .blur');
 
-		// eslint-disable-next-line no-magic-numbers
 		expect($uProgress).toHaveCss({height: `${10 * 4}px`});
 		expect($uProgressBar).toHaveCss({height: '10px'});
-		// eslint-disable-next-line no-magic-numbers
 		expect($uProgressBlur).toHaveCss({width: `${10 * 50}px`});
 		up.destroy();
 	});

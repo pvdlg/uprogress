@@ -90,7 +90,7 @@
     "semantic-release": "^15.0.0",
     "stylelint": "^9.0.0",
     "stylelint-config-xo": "^0.12.0",
-    "xo": "^0.23.0"
+    "xo": "^0.25.3"
   },
   "files": [
     "src",
@@ -209,6 +209,11 @@
     ]
   },
   "xo": {
-    "prettier": true
+    "prettier": true,
+    "rules": {
+      "unicorn/prefer-node-append": "off",
+      "unicorn/prefer-query-selector": "off",
+      "unicorn/prefer-includes": "off"
+    }
   }
 }
