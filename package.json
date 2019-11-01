@@ -75,7 +75,7 @@
     "postcss-cli": "^6.0.0",
     "primer-tooltips": "^1.4.0",
     "puppeteer": "^1.2.0",
-    "read-pkg": "^4.0.0",
+    "read-pkg": "^5.1.1",
     "rimraf": "^2.6.2",
     "rollup": "^1.0.0",
     "rollup-plugin-babel": "^4.0.1",
