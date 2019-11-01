@@ -60,7 +60,7 @@
     "jsdoc-to-markdown": "^4.0.0",
     "karma": "^4.4.1",
     "karma-chrome-launcher": "^3.1.0",
-    "karma-coverage": "^1.1.1",
+    "karma-coverage": "^2.0.1",
     "karma-jasmine": "^2.0.0",
     "karma-sauce-launcher": "^1.2.0",
     "karma-spec-reporter": "0.0.32",
