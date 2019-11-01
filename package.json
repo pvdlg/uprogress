@@ -47,7 +47,6 @@
     "chokidar-cli": "^2.1.0",
     "clipboard": "^2.0.0",
     "codecov": "^3.0.0",
-    "conventional-changelog-metahub": "^2.0.1",
     "cross-env": "^6.0.3",
     "cssnano": "next",
     "custom-event": "^1.0.1",
@@ -118,8 +117,6 @@
     "assets": [
       "dist/**"
     ],
-    "preset": "metahub",
-    "releaseRules": "conventional-changelog-metahub/release-rules",
     "publish": [
       "@semantic-release/npm",
       "@semantic-release/github",
