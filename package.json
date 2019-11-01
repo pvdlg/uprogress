@@ -73,7 +73,7 @@
     "postcss": "^7.0.0",
     "postcss-cli": "^6.0.0",
     "primer-tooltips": "^1.4.0",
-    "puppeteer": "^1.2.0",
+    "puppeteer": "^2.0.0",
     "read-pkg": "^5.1.1",
     "rimraf": "^3.0.0",
     "rollup": "^1.0.0",
