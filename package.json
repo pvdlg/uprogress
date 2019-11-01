@@ -25,16 +25,6 @@
   "bugs": {
     "url": "https://github.com/pvdlg/uprogress/issues"
   },
-  "bundlesize": [
-    {
-      "path": "./dist/uprogress.min.js",
-      "maxSize": "2700B"
-    },
-    {
-      "path": "./dist/uprogress.min.css",
-      "maxSize": "350B"
-    }
-  ],
   "config": {
     "module": "UProgress"
   },
@@ -54,7 +44,6 @@
     "@babel/preset-env": "^7.0.0",
     "browser-sync": "^2.18.13",
     "browserslist": "^4.0.0",
-    "bundlesize": "^0.17.0",
     "chokidar-cli": "^1.2.0",
     "clipboard": "^2.0.0",
     "codecov": "^3.0.0",
@@ -158,7 +147,6 @@
     "build:js-min": "rollup -c build/rollup.config.js -i src/js/$npm_package_name.js -m -n $npm_package_config_module  -o dist/$npm_package_name.min.js --environment MIN",
     "build:scss": "node-sass --output-style expanded --source-map true --source-map-contents --precision 6 src/scss/$npm_package_name.scss dist/$npm_package_name.css && postcss dist/$npm_package_name.css --replace -m -u autoprefixer",
     "build:scss-min": "node-sass --output-style expanded --source-map true --source-map-contents --precision 6 src/scss/$npm_package_name.scss dist/$npm_package_name.min.css && postcss dist/$npm_package_name.min.css --replace -m -u autoprefixer -u cssnano",
-    "bundlesize": "bundlesize",
     "clean:dist": "rimraf dist/**",
     "clean:docs": "rimraf docs/assets/** && rimraf docs/_site",
     "clean:test": "rimraf test/fixtures/**/*.css",
@@ -189,7 +177,7 @@
     "predocs:jekyll": "run-p docs-api:*",
     "saucelabs": "karma start build/karma.config-ci.js --single-run",
     "semantic-release": "semantic-release",
-    "test": "run-s build bundlesize docs-prod lint unit-test",
+    "test": "run-s build docs-prod lint unit-test",
     "unit-test": "karma start build/karma.config.js --single-run",
     "watch": "run-p watch:*",
     "watch:docs-api-js": "chokidar 'src/js/**/*.js' 'build/*.hbs' -c 'npm run docs-api:js' --initial",
