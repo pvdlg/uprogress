@@ -54,7 +54,10 @@ module.exports = config => {
 		reporters: ['coverage', 'spec'],
 		coverageReporter: {
 			dir: 'coverage/',
-			reporters: [{type: 'html', subdir: 'report-html'}, {type: 'json', subdir: '.'}],
+			reporters: [
+				{type: 'html', subdir: 'report-html'},
+				{type: 'json', subdir: '.'},
+			],
 		},
 		specReporter: {
 			suppressPassed: false,
