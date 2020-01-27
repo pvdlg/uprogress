@@ -36,7 +36,7 @@
     "@metahub/karma-postcss-preprocessor": "^3.0.0",
     "@metahub/karma-rollup-preprocessor": "^5.0.1",
     "@metahub/karma-sass-preprocessor": "^3.0.0",
-    "@semantic-release/exec": "^4.0.0",
+    "@semantic-release/exec": "^5.0.0",
     "a11y": "^0.5.0",
     "autoprefixer": "^9.0.0",
     "@babel/core": "^7.0.0",
