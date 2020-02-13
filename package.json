@@ -89,7 +89,7 @@
     "semantic-release": "^17.0.0",
     "stylelint": "^13.1.0",
     "stylelint-config-xo": "^0.16.0",
-    "xo": "^0.25.3"
+    "xo": "^0.26.1"
   },
   "files": [
     "src",
@@ -202,11 +202,13 @@
     "ignoreFiles": [
       "dist/**",
       "docs/assets/**",
-      "**/_syntax.scss"
+      "**/_syntax.scss",
+      "**/*.js"
     ]
   },
   "xo": {
     "prettier": true,
+    "nodeVersion": false,
     "rules": {
       "unicorn/prefer-node-append": "off",
       "unicorn/prefer-query-selector": "off",
