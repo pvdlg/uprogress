@@ -89,7 +89,7 @@
     "semantic-release": "^17.0.0",
     "stylelint": "^13.1.0",
     "stylelint-config-xo": "^0.16.0",
-    "xo": "^0.26.1"
+    "xo": "^0.27.0"
   },
   "files": [
     "src",
