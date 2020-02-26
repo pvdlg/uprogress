@@ -8,8 +8,7 @@ branches:
     - /^greenkeeper.*$/
 
 cache:
-  directories:
-    - ~/.npm
+  npm: false
 
 before_install:
   - cd docs && bundle install && cd ..
