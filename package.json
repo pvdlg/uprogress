@@ -32,7 +32,7 @@
     "mout": "^1.1.0"
   },
   "devDependencies": {
-    "@metahub/karma-jasmine-jquery": "^4.0.0",
+    "@metahub/karma-jasmine-jquery": "^4.0.1",
     "@metahub/karma-postcss-preprocessor": "^4.0.0",
     "@metahub/karma-rollup-preprocessor": "^6.0.0",
     "@metahub/karma-sass-preprocessor": "^4.0.0",
