@@ -76,7 +76,7 @@
     "puppeteer": "^2.0.0",
     "read-pkg": "^5.1.1",
     "rimraf": "^3.0.0",
-    "rollup": "^2.0.0",
+    "rollup": "^2.2.0",
     "rollup-plugin-babel": "^4.0.1",
     "rollup-plugin-commonjs": "^10.1.0",
     "rollup-plugin-glob-import": "0.4.5",
