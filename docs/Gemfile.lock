@@ -51,7 +51,7 @@ GEM
     mercenary (0.3.6)
     mini_portile2 (2.4.0)
     multipart-post (2.1.1)
-    nokogiri (1.10.5)
+    nokogiri (1.10.10)
       mini_portile2 (~> 2.4.0)
     octicons (9.2.0)
       nokogiri (>= 1.6.3.1)
@@ -83,7 +83,7 @@ DEPENDENCIES
   jekyll-octicons (~> 9.2.0)
   jekyll-seo-tag (~> 2.6.1)
   jekyll-sitemap (~> 1.3.1)
-  nokogiri (~> 1.10.5)
+  nokogiri (~> 1.10.10)
 
 BUNDLED WITH
    1.17.2
