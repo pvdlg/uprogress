@@ -49,10 +49,11 @@ GEM
       rb-fsevent (~> 0.10, >= 0.10.3)
       rb-inotify (~> 0.9, >= 0.9.10)
     mercenary (0.3.6)
-    mini_portile2 (2.4.0)
+    mini_portile2 (2.5.1)
     multipart-post (2.1.1)
-    nokogiri (1.10.5)
-      mini_portile2 (~> 2.4.0)
+    nokogiri (1.11.4)
+      mini_portile2 (~> 2.5.0)
+      racc (~> 1.4)
     octicons (9.2.0)
       nokogiri (>= 1.6.3.1)
     octokit (4.14.0)
@@ -60,6 +61,7 @@ GEM
     pathutil (0.16.2)
       forwardable-extended (~> 2.6)
     public_suffix (4.0.1)
+    racc (1.5.2)
     rb-fsevent (0.10.3)
     rb-inotify (0.10.0)
       ffi (~> 1.0)
@@ -83,7 +85,7 @@ DEPENDENCIES
   jekyll-octicons (~> 9.2.0)
   jekyll-seo-tag (~> 2.6.1)
   jekyll-sitemap (~> 1.3.1)
-  nokogiri (~> 1.10.5)
+  nokogiri (~> 1.11.4)
 
 BUNDLED WITH
    1.17.2
